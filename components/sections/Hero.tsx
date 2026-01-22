@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Button from '@/components/ui/Button';
-import CustomSVGGraphic from '@/components/ui/CustomSVGGraphic';
+import HeroBackground from '@/components/ui/HeroBackground';
 import AnimatedTextReveal from '@/components/ui/AnimatedTextReveal';
 import { ArrowDown } from 'lucide-react';
 
@@ -11,9 +11,7 @@ export default function Hero() {
         <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
             {/* Background Layer */}
             <div className="absolute inset-0 z-0 bg-brand-dark">
-                <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-                <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/20 via-brand-dark/80 to-brand-dark" />
-                <CustomSVGGraphic />
+                <HeroBackground />
             </div>
 
             {/* Content Layer */}
