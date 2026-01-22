@@ -1,13 +1,15 @@
-import type { Metadata } from 'next';
-import ContactForm from '@/components/sections/ContactForm';
-import { generateMetadata } from '@/lib/metadata';
-
-export const metadata: Metadata = generateMetadata({
-    title: 'Contact',
-    description: 'Have a challenging project? Get in touch with DotQ. We\'re ready to tackle complex engineering problems and deliver production-ready solutions.',
-    path: '/contact',
-});
+import ContactForm from "@/components/sections/ContactForm";
+import CustomSVGGraphic from "@/components/ui/CustomSVGGraphic";
 
 export default function ContactPage() {
-    return <ContactForm />;
+    return (
+        <main className="pt-20 min-h-screen relative bg-brand-dark overflow-hidden">
+            <div className="absolute inset-0 z-0">
+                <CustomSVGGraphic />
+            </div>
+            <div className="relative z-10">
+                <ContactForm />
+            </div>
+        </main>
+    );
 }

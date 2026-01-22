@@ -1,15 +1,17 @@
 import Hero from '@/components/sections/Hero';
 import Services from '@/components/sections/Services';
-import WhyDotQ from '@/components/sections/WhyDotQ';
+import Process from '@/components/sections/Process';
 import Projects from '@/components/sections/Projects';
+import CallToAction from '@/components/sections/CallToAction';
 
 export default function HomePage() {
     return (
         <>
             <Hero />
             <Services />
-            <WhyDotQ />
+            <Process />
             <Projects />
+            <CallToAction />
         </>
     );
 }

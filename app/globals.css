@@ -3,25 +3,20 @@
 @tailwind utilities;
 
 :root {
-    --background: #ffffff;
-    --foreground: #0a0a0a;
+    --background: #020617;
+    --foreground: #f8fafc;
+    --font-space: 'Space Grotesk', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+::selection {
+    background: #3b82f6;
+    color: #ffffff;
 }
 
 html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #1e293b #020617;
 }
 
 body {
@@ -30,6 +25,24 @@ body {
     font-family: var(--font-inter), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3b82f6;
 }
 
 @layer utilities {

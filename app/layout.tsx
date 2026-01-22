@@ -1,13 +1,19 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import NoiseOverlay from "@/components/ui/NoiseOverlay";
 import { DEFAULT_METADATA } from "@/lib/metadata";
 
 const inter = Inter({
     subsets: ["latin"],
     variable: "--font-inter",
+    display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+    subsets: ["latin"],
+    variable: "--font-space",
     display: "swap",
 });
 
@@ -19,8 +25,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={inter.variable}>
-            <body className="antialiased">
+        <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+            <body className="antialiased bg-brand-dark">
+                <NoiseOverlay />
                 <Navbar />
                 <main>{children}</main>
                 <Footer />
