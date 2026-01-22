@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { NAV_LINKS, COMPANY } from '@/lib/constants';
 import { Menu, X } from 'lucide-react';
@@ -25,20 +26,28 @@ export default function Navbar() {
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? 'bg-background/80 backdrop-blur-lg border-b border-foreground/10 shadow-sm'
-                    : 'bg-transparent'
+                ? 'bg-background/80 backdrop-blur-lg border-b border-foreground/10 shadow-sm'
+                : 'bg-transparent'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
-                        <motion.span
+                        <motion.div
                             whileHover={{ scale: 1.05 }}
-                            className="text-2xl font-bold gradient-text"
+                            className="relative h-12"
                         >
-                            {COMPANY.name}
-                        </motion.span>
+                            <Image
+                                src="/assets/dotq-logo.png"
+                                alt="Dot Q Logo"
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                className="h-full w-auto object-contain mix-blend-screen"
+                                priority
+                            />
+                        </motion.div>
                     </Link>
 
                     {/* Desktop Navigation */}
