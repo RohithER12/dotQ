@@ -1,8 +1,10 @@
+import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import NoiseOverlay from "@/components/ui/NoiseOverlay";
+import SmoothScroll from "@/components/ui/SmoothScroll";
 import { DEFAULT_METADATA } from "@/lib/metadata";
 
 const inter = Inter({
@@ -27,10 +29,12 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
             <body className="antialiased bg-brand-dark">
-                <NoiseOverlay />
-                <Navbar />
-                <main>{children}</main>
-                <Footer />
+                <SmoothScroll>
+                    <NoiseOverlay />
+                    <Navbar />
+                    <main>{children}</main>
+                    <Footer />
+                </SmoothScroll>
             </body>
         </html>
     );
