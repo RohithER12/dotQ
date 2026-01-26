@@ -26,9 +26,31 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Dotq',
+        url: 'https://dotq.dev',
+        logo: 'https://dotq.dev/logo.png',
+        sameAs: [
+            'https://www.linkedin.com/company/dotq',
+            'https://twitter.com/dotq'
+        ],
+        contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '',
+            contactType: 'customer service'
+        },
+        description: 'Dotq is a premier IT and automation company based in India, specializing in custom software development, freelance IT services, and digital transformation.'
+    };
+
     return (
         <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
             <body className="antialiased bg-brand-dark">
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
                 <SmoothScroll>
                     <NoiseOverlay />
                     <Navbar />

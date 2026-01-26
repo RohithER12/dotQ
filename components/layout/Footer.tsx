@@ -11,7 +11,7 @@ export default function Footer() {
                         DotQ
                     </span>
                     <p className="text-white/40 text-sm">
-                        Engineering The Impossible.
+                        Dotq IT & Automation: Engineering The Impossible.
                     </p>
                 </div>
 
@@ -22,7 +22,7 @@ export default function Footer() {
                 </div>
 
                 <div className="text-white/20 text-xs">
-                    © {new Date().getFullYear()} DotQ Inc.
+                    © {new Date().getFullYear()} Dotq IT Automation. All rights reserved.
                 </div>
             </div>
         </footer>
