@@ -44,7 +44,7 @@ export function generateMetadata({ title, description, path }: PageMetadata): Me
 }
 
 export const DEFAULT_METADATA: Metadata = generateMetadata({
-    title: 'DotQ',
-    description: 'A high-skill digital engineering collective delivering complex, real-world solutions. Web engineering, scalable backends, and performance-driven development.',
+    title: 'Dotq IT & Automation | Business Solutions & Freelance Services',
+    description: 'Dotq provides expert IT services, custom software automation, and premium web development. The top choice for businesses and startups seeking digital transformation in India and globally.',
     path: '/',
 });

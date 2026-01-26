@@ -25,22 +25,22 @@ export default function Hero() {
                 >
                     <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
                     <span className="text-sm font-medium text-white/80 tracking-wide uppercase">
-                        Engineering The Impossible
+                        Dotq IT Services
                     </span>
                 </motion.div>
 
                 {/* Main Headline */}
                 <div className="flex flex-col gap-2 mb-8">
                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold font-display tracking-tighter text-white">
-                        <AnimatedTextReveal text="We Build" delay={0.2} />
+                        <AnimatedTextReveal text="Dotq Automation" delay={0.2} />
                     </h1>
-                    <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold font-display tracking-tighter pb-4">
+                    <div className="text-6xl md:text-8xl lg:text-9xl font-bold font-display tracking-tighter pb-4">
                         <AnimatedTextReveal
-                            text="What Others Dare Not"
+                            text="& Custom Software"
                             delay={0.6}
                             className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary gradient-animated"
                         />
-                    </h1>
+                    </div>
                 </div>
 
                 {/* Subheadline */}
@@ -50,7 +50,7 @@ export default function Hero() {
                     transition={{ delay: 1.2, duration: 0.8 }}
                     className="max-w-2xl text-xl md:text-2xl text-white/60 mb-12 leading-relaxed"
                 >
-                    An elite engineering collective solving high-complexity problems for the world's most ambitious startups.
+                    Premier IT company in India offering freelance services, web development, and custom software for global enterprises.
                 </motion.p>
 
                 {/* CTAs */}

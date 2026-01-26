@@ -7,10 +7,10 @@ import SectionWrapper from '@/components/ui/SectionWrapper';
 import SectionTitle from '@/components/ui/SectionTitle';
 
 const SERVICES = [
-    { title: 'Complex Web Apps', description: 'Next.js & React applications with heavy state management and real-time features.', icon: Code2 },
-    { title: 'High-Scale Backend', description: 'Distributed systems, microservices, and serverless architectures in Go and Node.js.', icon: Server },
+    { title: 'Web Development & Automation', description: 'Next.js & React applications with heavy state management and real-time features.', icon: Code2 },
+    { title: 'Custom IT Solutions & Backend', description: 'Distributed systems, microservices, and serverless architectures in Go and Node.js.', icon: Server },
     { title: 'Interactive Design', description: 'Award-winning UI/UX with WebGL, Three.js, and Framer Motion animations.', icon: Palette },
-    { title: 'System Architecture', description: 'Cloud-native infrastructure and DevOps scaling strategies.', icon: Workflow },
+    { title: 'Business Automation Solutions', description: 'Cloud-native infrastructure and DevOps scaling strategies.', icon: Workflow },
     { title: 'Performance Engineering', description: 'Optimization for core web vitals and high-load scenarios.', icon: Zap },
     { title: 'AI Integration', description: 'LLM integration and custom AI model deployment.', icon: Brain },
 ];
