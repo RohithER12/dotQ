@@ -30,8 +30,8 @@ export default function RootLayout({
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'Dotq',
-        url: 'https://dotq.dev',
-        logo: 'https://dotq.dev/logo.png',
+        url: 'https://dotq.in',
+        logo: 'https://dotq.in/logo.png',
         sameAs: [
             'https://www.linkedin.com/company/dotq',
             'https://twitter.com/dotq'
