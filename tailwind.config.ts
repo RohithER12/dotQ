@@ -9,66 +9,69 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                background: "var(--background)",
-                foreground: "var(--foreground)",
-                brand: {
-                    dark: '#020617', // Deep Navy
-                    primary: '#3b82f6', // Electric Blue
-                    accent: '#8b5cf6', // Neon Purple
-                    light: '#f8fafc',
+                outer: "#FFFFFF",
+                canvas: "#FFFFFF",
+                surface: "#FFFFFF",
+                "surface-subtle": "#F8F8FA",
+                "soft-blue": "#EEF1FF",
+                "soft-lavender": "#F3F5FF",
+                
+                // Color mappings for both `text-primary` and `text-text-primary`
+                primary: "#09090B",
+                secondary: "#6F7078",
+                muted: "#9A9BA2",
+
+                "text-primary": "#09090B",
+                "text-secondary": "#6F7078",
+                "text-muted": "#9A9BA2",
+                
+                cobalt: {
+                    DEFAULT: "#2442D7",
+                    hover: "#1D37B8",
+                    bright: "#405BFF",
+                    light: "#A8B1FF",
+                    subtle: "#EFF2FF",
                 },
-                // Keeping existing palette for backward compatibility if needed, but redefining functionality
-                primary: {
-                    DEFAULT: '#3b82f6',
-                    foreground: '#ffffff',
-                },
-                secondary: {
-                    DEFAULT: '#8b5cf6',
-                    foreground: '#ffffff',
+                
+                border: {
+                    subtle: "rgba(10, 10, 10, 0.08)",
+                    strong: "rgba(10, 10, 10, 0.15)",
                 }
             },
             fontFamily: {
-                sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-                display: ['var(--font-space)', 'system-ui', 'sans-serif'],
+                sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+                display: ["var(--font-inter)", "system-ui", "sans-serif"],
+            },
+            borderRadius: {
+                '4xl': '32px',
+                '3xl': '24px',
+                '2xl': '18px',
+                'xl': '14px',
+            },
+            boxShadow: {
+                'nova-sm': '0 2px 8px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02)',
+                'nova-md': '0 8px 30px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.03)',
+                'nova-lg': '0 20px 40px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04)',
+                'cobalt-glow': '0 10px 30px rgba(36, 66, 215, 0.25)',
             },
             animation: {
-                'fade-in': 'fadeIn 0.6s ease-out',
-                'slide-up': 'slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                'slide-down': 'slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
-                'scale-in': 'scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
-                'float': 'float 6s ease-in-out infinite',
-                'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
-                'reveal': 'reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1)',
+                'marquee': 'marquee 35s linear infinite',
+                'float-slow': 'floatSlow 7s ease-in-out infinite',
+                'pulse-subtle': 'pulseSubtle 4s ease-in-out infinite',
             },
             keyframes: {
-                fadeIn: {
-                    '0%': { opacity: '0' },
-                    '100%': { opacity: '1' },
+                marquee: {
+                    '0%': { transform: 'translateX(0%)' },
+                    '100%': { transform: 'translateX(-50%)' },
                 },
-                slideUp: {
-                    '0%': { transform: 'translateY(20px)', opacity: '0' },
-                    '100%': { transform: 'translateY(0)', opacity: '1' },
+                floatSlow: {
+                    '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                    '50%': { transform: 'translateY(-12px) rotate(2deg)' },
                 },
-                slideDown: {
-                    '0%': { transform: 'translateY(-20px)', opacity: '0' },
-                    '100%': { transform: 'translateY(0)', opacity: '1' },
+                pulseSubtle: {
+                    '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+                    '50%': { opacity: '0.85', transform: 'scale(1.02)' },
                 },
-                scaleIn: {
-                    '0%': { transform: 'scale(0.9)', opacity: '0' },
-                    '100%': { transform: 'scale(1)', opacity: '1' },
-                },
-                float: {
-                    '0%, 100%': { transform: 'translateY(0)' },
-                    '50%': { transform: 'translateY(-20px)' },
-                },
-                pulseGlow: {
-                    '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
-                    '50%': { opacity: '1', transform: 'scale(1.05)' },
-                },
-                reveal: {
-                    '0%': { clipPath: 'inset(0 100% 0 0)' },
-                    '100%': { clipPath: 'inset(0 0 0 0)' },
-                }
             },
         },
     },

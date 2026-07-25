@@ -9,33 +9,37 @@ interface PageMetadata {
 export function generateMetadata({ title, description, path }: PageMetadata): Metadata {
     const siteName = 'DotQ';
     const baseUrl = 'https://dotq.in';
-    const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
     const url = `${baseUrl}${path}`;
 
     return {
-        title: fullTitle,
+        title,
         description,
         metadataBase: new URL(baseUrl),
         openGraph: {
-            title: fullTitle,
+            title,
             description,
             url,
             siteName,
             type: 'website',
             images: [
                 {
-                    url: '/og-image.jpg',
-                    width: 1200,
-                    height: 630,
+                    url: '/assets/dotq-logo.png',
+                    width: 512,
+                    height: 512,
                     alt: siteName,
                 },
             ],
         },
         twitter: {
             card: 'summary_large_image',
-            title: fullTitle,
+            title,
             description,
-            images: ['/og-image.jpg'],
+            images: ['/assets/dotq-logo.png'],
+        },
+        icons: {
+            icon: '/assets/fav%20icon%2002.png',
+            shortcut: '/assets/fav%20icon%2002.png',
+            apple: '/assets/fav%20icon%2002.png',
         },
         alternates: {
             canonical: url,
@@ -44,7 +48,7 @@ export function generateMetadata({ title, description, path }: PageMetadata): Me
 }
 
 export const DEFAULT_METADATA: Metadata = generateMetadata({
-    title: 'Dotq IT & Automation | Business Solutions & Freelance Services',
-    description: 'Dotq provides expert IT services, custom software automation, and premium web development. The top choice for businesses and startups seeking digital transformation in India and globally.',
+    title: 'DotQ | IT Automation & Custom Software',
+    description: 'Premier IT company in India offering freelance services, web development, automation and custom software for global enterprises.',
     path: '/',
 });

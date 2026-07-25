@@ -1,104 +1,74 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, ArrowRight } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
-import { Menu, X } from 'lucide-react';
-import Button from '@/components/ui/Button';
+import MobileMenu from './MobileMenu';
 
 export default function Navbar() {
-    const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
     return (
-        <motion.nav
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.5 }}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${scrolled
-                ? 'bg-brand-dark/80 backdrop-blur-xl border-white/10 py-4'
-                : 'bg-transparent border-transparent py-6'
-                }`}
-        >
-            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-                {/* Logo */}
-                <Link href="/" className="relative z-50">
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        className="text-2xl font-bold font-display tracking-tight text-white"
-                    >
-                        DotQ
-                    </motion.div>
-                </Link>
+        <>
+            <header className="sticky top-0 z-40 w-full bg-canvas/90 backdrop-blur-md border-b border-border-subtle py-4 transition-all duration-300">
+                <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+                    {/* Left: Only Brand Logo (Company name text removed) */}
+                    <Link href="/" className="flex items-center group focus:outline-none rounded-lg">
+                        <div className="relative h-8 sm:h-9 w-auto flex items-center">
+                            <Image
+                                src="/assets/dot%20q%20Logo.png"
+                                alt="DotQ Logo"
+                                width={120}
+                                height={36}
+                                className="h-8 sm:h-9 w-auto object-contain transition-opacity duration-200 group-hover:opacity-85"
+                                priority
+                            />
+                        </div>
+                    </Link>
 
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-10">
-                    {NAV_LINKS.map((link) => (
-                        <Link
-                            key={link.href}
-                            href={link.href}
-                            className="relative text-sm font-medium text-white/70 hover:text-white transition-colors group"
-                        >
-                            {link.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-primary transition-all duration-300 group-hover:w-full" />
-                        </Link>
-                    ))}
-                    <Button href="/contact" variant="primary" className="!py-2 !px-6 !text-xs">
-                        Work With Us
-                    </Button>
-                </div>
-
-                {/* Mobile Menu Button */}
-                <button
-                    className="md:hidden relative z-50 p-2 text-white"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
-                    {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-
-                {/* Mobile Menu Overlay */}
-                <AnimatePresence>
-                    {mobileMenuOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, x: '100%' }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: '100%' }}
-                            transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-                            className="fixed inset-0 bg-brand-dark/95 backdrop-blur-xl z-40 flex flex-col justify-center items-center gap-8 md:hidden"
-                        >
-                            {NAV_LINKS.map((link) => (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    className="text-2xl font-display font-medium text-white/90 hover:text-brand-primary transition-colors"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                            <Button
-                                href="/contact"
-                                variant="primary"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="mt-4"
+                    {/* Centre Navigation Links */}
+                    <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+                        {NAV_LINKS.map((link) => (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className="text-sm font-medium text-black hover:text-cobalt transition-colors"
                             >
-                                Start a Project
-                            </Button>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </div>
-        </motion.nav>
+                                {link.name}
+                            </Link>
+                        ))}
+                    </nav>
+
+                    {/* Right: Plain Text Action Link with Arrow */}
+                    <div className="flex items-center gap-4">
+                        <div className="hidden sm:block">
+                            <Link
+                                href="/contact"
+                                className="text-sm font-medium text-primary hover:text-cobalt transition-colors inline-flex items-center gap-1.5 group cursor-pointer"
+                            >
+                                <span>Start Your Project</span>
+                                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                            </Link>
+                        </div>
+
+                        <button
+                            onClick={() => setMobileMenuOpen(true)}
+                            className="md:hidden p-2 rounded-lg text-primary hover:bg-black/5 transition-colors"
+                            aria-label="Open navigation menu"
+                        >
+                            <Menu className="w-5 h-5" />
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            {/* Mobile Menu Drawer */}
+            <MobileMenu
+                isOpen={mobileMenuOpen}
+                onClose={() => setMobileMenuOpen(false)}
+            />
+        </>
     );
 }

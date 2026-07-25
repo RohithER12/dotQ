@@ -1,21 +1,15 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import PageShell from "@/components/layout/PageShell";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import NoiseOverlay from "@/components/ui/NoiseOverlay";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import { DEFAULT_METADATA } from "@/lib/metadata";
 
 const inter = Inter({
     subsets: ["latin"],
     variable: "--font-inter",
-    display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-    subsets: ["latin"],
-    variable: "--font-space",
     display: "swap",
 });
 
@@ -29,33 +23,37 @@ export default function RootLayout({
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'Organization',
-        name: 'Dotq',
+        name: 'DotQ',
+        legalName: 'Dotq IT Automation',
         url: 'https://dotq.in',
-        logo: 'https://dotq.in/logo.png',
+        logo: 'https://dotq.in/assets/dotq-logo.png',
         sameAs: [
+            'https://www.instagram.com/dotq__/',
             'https://www.linkedin.com/company/dotq',
-            'https://twitter.com/dotq'
+            'https://twitter.com/dotq',
+            'https://github.com/RohithER12'
         ],
         contactPoint: {
             '@type': 'ContactPoint',
-            telephone: '',
+            email: 'rohither.tech@gmail.com',
             contactType: 'customer service'
         },
-        description: 'Dotq is a premier IT and automation company based in India, specializing in custom software development, freelance IT services, and digital transformation.'
+        description: 'Premier IT company in India offering freelance services, web development, automation and custom software for global enterprises.'
     };
 
     return (
-        <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-            <body className="antialiased bg-brand-dark">
+        <html lang="en" className={inter.variable} suppressHydrationWarning>
+            <body className="antialiased bg-white text-text-primary font-sans" suppressHydrationWarning>
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
                 <SmoothScroll>
-                    <NoiseOverlay />
-                    <Navbar />
-                    <main>{children}</main>
-                    <Footer />
+                    <PageShell>
+                        <Navbar />
+                        <main className="flex-grow">{children}</main>
+                        <Footer />
+                    </PageShell>
                 </SmoothScroll>
             </body>
         </html>
