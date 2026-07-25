@@ -16,7 +16,7 @@ export default function ContactHero() {
                 initial={mounted ? { opacity: 0, y: 10 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-soft-blue text-cobalt text-xs font-semibold uppercase tracking-wider border border-cobalt/15"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-primary text-xs font-semibold uppercase tracking-wider border border-border-subtle shadow-subtle"
             >
                 <span className="w-2 h-2 rounded-full bg-cobalt" />
                 <span>CONTACT DOTQ</span>

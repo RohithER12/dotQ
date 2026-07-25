@@ -15,7 +15,7 @@ export default function CapabilitySummary() {
     }, []);
 
     return (
-        <section className="py-20 sm:py-28 bg-canvas border-b border-border-subtle">
+        <section className="py-20 sm:py-28 bg-canvas">
             <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeading
                     eyebrow="CAPABILITY SUMMARY"
@@ -36,7 +36,8 @@ export default function CapabilitySummary() {
                         className="bg-white rounded-3xl p-8 sm:p-10 border border-border-subtle shadow-nova-md flex flex-col justify-between space-y-8 hover:shadow-nova-lg transition-all duration-300"
                     >
                         <div className="space-y-6">
-                            <div className="inline-block px-3 py-1 rounded-full bg-soft-blue text-cobalt text-xs font-mono font-bold">
+                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-border-subtle text-primary text-xs font-semibold uppercase tracking-wider shadow-subtle">
+                                <span className="w-2 h-2 rounded-full bg-cobalt" />
                                 FRONTEND & CORE PRODUCT
                             </div>
                             <h3 className="text-2xl sm:text-3xl font-semibold text-primary">

@@ -23,16 +23,16 @@ export default function BrowserMockup({
     const [hasError, setHasError] = useState(false);
 
     // Compute live screenshot URL if liveUrl is provided and previewImage is not explicitly passed
-    const screenshotUrl = previewImage || (liveUrl ? `https://image.thum.io/get/width/800/crop/500/noanimate/${liveUrl}` : null);
+    const screenshotUrl = previewImage || (liveUrl ? `https://api.microlink.io/?url=${encodeURIComponent(liveUrl)}&screenshot=true&embed=screenshot.url` : null);
 
     return (
-        <div className={`rounded-2xl overflow-hidden bg-white border border-border-subtle shadow-nova-md text-text-primary ${className}`}>
+        <div className={`rounded-2xl overflow-hidden bg-white border border-border-subtle text-text-primary ${className}`}>
             {/* Browser Header Bar */}
             <div className="flex items-center justify-between px-4 py-3 bg-[#F6F6F8] border-b border-border-subtle select-none">
                 <div className="flex items-center gap-2">
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#FF5F56] inline-block shadow-sm" />
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] inline-block shadow-sm" />
-                    <span className="w-3.5 h-3.5 rounded-full bg-[#27C93F] inline-block shadow-sm" />
+                    <span className="w-3.5 h-3.5 rounded-full bg-[#FF5F56] inline-block" />
+                    <span className="w-3.5 h-3.5 rounded-full bg-[#FFBD2E] inline-block" />
+                    <span className="w-3.5 h-3.5 rounded-full bg-[#27C93F] inline-block" />
                 </div>
 
                 {/* URL Pill */}

@@ -111,7 +111,7 @@ export default function FeaturedWork() {
     };
 
     return (
-        <section id="work" className="py-20 sm:py-28 bg-white border-b border-border-subtle">
+        <section id="work" className="py-20 sm:py-28 bg-[#F2F2F2]">
             <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeading
                     eyebrow="CLIENT PORTFOLIO"
@@ -134,7 +134,7 @@ export default function FeaturedWork() {
                                 href={client.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group block rounded-3xl bg-canvas border border-border-subtle p-6 shadow-nova-sm hover:shadow-nova-lg hover:border-cobalt/30 transition-all duration-300 h-full flex flex-col justify-between overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-cobalt"
+                                className="group block rounded-3xl bg-canvas p-6 transition-all duration-300 h-full flex flex-col justify-between overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-cobalt"
                             >
                                 <div className="space-y-4 mb-6">
                                     <div className="flex items-center justify-end min-h-[26px]">
@@ -144,11 +144,11 @@ export default function FeaturedWork() {
                                         </div>
                                     </div>
 
-                                    <h3 className="text-xl font-bold text-primary group-hover:text-cobalt transition-colors">
+                                    <h3 className="font-poppins text-xl font-bold text-primary">
                                         {client.name}
                                     </h3>
 
-                                    <p className="text-sm text-secondary leading-relaxed line-clamp-3">
+                                    <p className="font-poppins text-sm text-secondary leading-relaxed line-clamp-3">
                                         {client.description}
                                     </p>
 

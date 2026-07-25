@@ -41,6 +41,7 @@ const config: Config = {
             fontFamily: {
                 sans: ["var(--font-inter)", "system-ui", "sans-serif"],
                 display: ["var(--font-inter)", "system-ui", "sans-serif"],
+                poppins: ["var(--font-poppins)", "system-ui", "sans-serif"],
             },
             borderRadius: {
                 '4xl': '32px',

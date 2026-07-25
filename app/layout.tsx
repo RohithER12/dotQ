@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import PageShell from "@/components/layout/PageShell";
 import Navbar from "@/components/layout/Navbar";
@@ -10,6 +10,13 @@ import { DEFAULT_METADATA } from "@/lib/metadata";
 const inter = Inter({
     subsets: ["latin"],
     variable: "--font-inter",
+    display: "swap",
+});
+
+const poppins = Poppins({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-poppins",
     display: "swap",
 });
 
@@ -29,7 +36,7 @@ export default function RootLayout({
         logo: 'https://dotq.in/assets/dotq-logo.png',
         sameAs: [
             'https://www.instagram.com/dotq__/',
-            'https://www.linkedin.com/company/dotq',
+            'https://www.linkedin.com/in/dot-q-b667393a8/',
             'https://twitter.com/dotq',
             'https://github.com/RohithER12'
         ],
@@ -42,7 +49,7 @@ export default function RootLayout({
     };
 
     return (
-        <html lang="en" className={inter.variable} suppressHydrationWarning>
+        <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
             <body className="antialiased bg-white text-text-primary font-sans" suppressHydrationWarning>
                 <script
                     type="application/ld+json"

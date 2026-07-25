@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ArrowRight } from 'lucide-react';
-import { NAV_LINKS, COMPANY } from '@/lib/constants';
+import { X, ChevronDown, ChevronUp } from 'lucide-react';
+import { COMPANY } from '@/lib/constants';
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -13,6 +13,8 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+    const [servicesExpanded, setServicesExpanded] = useState(false);
+
     // Lock body scroll when open
     useEffect(() => {
         if (isOpen) {
@@ -34,6 +36,28 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [onClose]);
 
+    // Drawer list items matching reference design
+    const drawerItems = [
+        {
+            name: 'Services',
+            href: '/#services',
+            hasDropdown: true,
+            subItems: [
+                { name: 'Mobile App Development (Flutter)', href: '/#services' },
+                { name: 'Web Engineering (Next.js)', href: '/#services' },
+                { name: 'Custom Backend Systems', href: '/#services' },
+                { name: 'E-Commerce Solutions', href: '/#services' },
+                { name: 'AI & Automation', href: '/#services' },
+            ],
+        },
+        { name: 'Solutions', href: '/#services' },
+        { name: 'Industries', href: '/#services' },
+        { name: 'Works', href: '/work' },
+        { name: 'About', href: '/#about' },
+        { name: 'Careers', href: '/contact' },
+        { name: 'Partnership', href: '/contact' },
+    ];
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -53,15 +77,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         initial={{ x: '100%' }}
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
-                        transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                        className="relative w-full max-w-sm bg-white h-full shadow-2xl flex flex-col justify-between p-6 sm:p-8 z-10"
+                        transition={{ type: 'spring', damping: 26, stiffness: 220 }}
+                        className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col justify-between p-6 sm:p-8 z-10 overflow-y-auto"
                         role="dialog"
                         aria-modal="true"
                         aria-label="Navigation Menu"
                     >
                         <div>
                             {/* Drawer Header */}
-                            <div className="flex items-center justify-between border-b border-border-subtle pb-6 mb-8">
+                            <div className="flex items-center justify-between pb-6 mb-2 border-b border-black/10">
                                 <Link href="/" onClick={onClose} className="focus:outline-none">
                                     <Image
                                         src="/assets/dot%20q%20Logo.png"
@@ -74,41 +98,79 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                                 </Link>
                                 <button
                                     onClick={onClose}
-                                    className="p-2 rounded-full hover:bg-canvas text-text-secondary transition-colors"
+                                    className="p-2 rounded-full hover:bg-black/5 text-primary transition-colors"
                                     aria-label="Close menu"
                                 >
                                     <X className="w-6 h-6" />
                                 </button>
                             </div>
 
-                            {/* Nav Links */}
-                            <nav className="flex flex-col gap-6">
-                                {NAV_LINKS.map((link) => (
-                                    <Link
-                                        key={link.name}
-                                        href={link.href}
-                                        onClick={onClose}
-                                        className="text-2xl font-medium text-black hover:text-cobalt transition-colors flex items-center justify-between group"
-                                    >
-                                        <span>{link.name}</span>
-                                        <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-cobalt" />
-                                    </Link>
+                            {/* Nav List Stack matching reference image */}
+                            <div className="flex flex-col divide-y divide-black/10">
+                                {drawerItems.map((item) => (
+                                    <div key={item.name} className="py-0.5">
+                                        {item.hasDropdown ? (
+                                            <div>
+                                                <button
+                                                    onClick={() => setServicesExpanded(!servicesExpanded)}
+                                                    className="w-full py-4 px-1 flex items-center justify-between font-poppins text-lg font-normal text-[#1A1A1A] hover:text-cobalt transition-colors text-left"
+                                                >
+                                                    <span>{item.name}</span>
+                                                    {servicesExpanded ? (
+                                                        <ChevronUp className="w-5 h-5 text-black/60 stroke-[1.5]" />
+                                                    ) : (
+                                                        <ChevronDown className="w-5 h-5 text-black/60 stroke-[1.5]" />
+                                                    )}
+                                                </button>
+
+                                                {/* Expanded Sub-items */}
+                                                <AnimatePresence>
+                                                    {servicesExpanded && (
+                                                        <motion.div
+                                                            initial={{ opacity: 0, height: 0 }}
+                                                            animate={{ opacity: 1, height: 'auto' }}
+                                                            exit={{ opacity: 0, height: 0 }}
+                                                            className="pl-4 pb-3 space-y-2.5 overflow-hidden"
+                                                        >
+                                                            {item.subItems?.map((sub) => (
+                                                                <Link
+                                                                    key={sub.name}
+                                                                    href={sub.href}
+                                                                    onClick={onClose}
+                                                                    className="block font-poppins text-sm text-secondary hover:text-cobalt py-1.5 transition-colors"
+                                                                >
+                                                                    {sub.name}
+                                                                </Link>
+                                                            ))}
+                                                        </motion.div>
+                                                    )}
+                                                </AnimatePresence>
+                                            </div>
+                                        ) : (
+                                            <Link
+                                                href={item.href}
+                                                onClick={onClose}
+                                                className="block py-4 px-1 font-poppins text-lg font-normal text-[#1A1A1A] hover:text-cobalt transition-colors"
+                                            >
+                                                {item.name}
+                                            </Link>
+                                        )}
+                                    </div>
                                 ))}
-                            </nav>
+                            </div>
                         </div>
 
-                        {/* Bottom CTA */}
-                        <div className="pt-6 border-t border-border-subtle space-y-4">
+                        {/* Drawer Footer CTA */}
+                        <div className="pt-6 mt-6 border-t border-black/10 space-y-4">
                             <Link
                                 href="/contact"
                                 onClick={onClose}
-                                className="w-full py-4 rounded-full bg-cobalt text-white font-medium text-center text-base flex items-center justify-center gap-2 shadow-cobalt-glow"
+                                className="w-full py-4 rounded-full bg-cobalt text-white font-poppins font-medium text-center text-base flex items-center justify-center gap-2 shadow-cobalt-glow hover:bg-cobalt/95 transition-all"
                             >
                                 <span>Start Your Project</span>
-                                <ArrowRight className="w-4 h-4" />
                             </Link>
 
-                            <p className="text-xs text-center text-text-muted">
+                            <p className="text-xs text-center text-secondary font-poppins">
                                 {COMPANY.tagline}
                             </p>
                         </div>
@@ -118,3 +180,4 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </AnimatePresence>
     );
 }
+

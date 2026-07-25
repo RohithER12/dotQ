@@ -41,7 +41,7 @@ export default function BrandStatement() {
         <section
             id="about"
             ref={containerRef}
-            className="h-[200vh] bg-canvas border-b border-border-subtle relative pt-20 sm:pt-28 md:pt-32 pb-20 sm:pb-28 md:pb-32"
+            className="h-[200vh] bg-canvas relative pt-20 sm:pt-28 md:pt-32 pb-20 sm:pb-28 md:pb-32"
         >
             <div className="sticky top-[20vh] sm:top-[22vh] max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="space-y-6 sm:space-y-8">

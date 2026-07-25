@@ -20,36 +20,33 @@ export default function Footer() {
                                 alt="DotQ Logo"
                                 width={140}
                                 height={42}
-                                className="h-9 w-auto object-contain"
+                                className="h-10 sm:h-9 w-auto object-contain"
                                 priority
                             />
                         </Link>
 
                         <div className="space-y-1">
-                            <p className="text-xs sm:text-sm text-zinc-400 font-medium">
-                                Dotq IT & Automation:
-                            </p>
-                            <p className="text-xs sm:text-sm text-white font-bold tracking-tight">
+                            <p className="text-base sm:text-sm text-white font-light tracking-tight">
                                 Engineering The Impossible.
                             </p>
                         </div>
 
-                        <p className="text-xs text-zinc-500 max-w-md leading-relaxed pt-1">
+                        <p className="text-sm sm:text-xs text-zinc-400 max-w-md leading-relaxed pt-1">
                             Premier IT company in India offering freelance services, web development, mobile app development with Flutter, e-commerce solutions, and custom software for global enterprises.
                         </p>
                     </div>
 
                     {/* Column 2: Navigation */}
                     <div className="md:col-span-3 space-y-4">
-                        <h4 className="text-[11px] font-mono font-semibold uppercase tracking-widest text-zinc-400">
+                        <h4 className="text-xs sm:text-[11px] font-mono font-semibold uppercase tracking-widest text-zinc-400">
                             NAVIGATION
                         </h4>
-                        <ul className="space-y-2.5">
+                        <ul className="space-y-3 sm:space-y-2.5">
                             {NAV_LINKS.map((link) => (
                                 <li key={link.name}>
                                     <Link
                                         href={link.href}
-                                        className="text-xs sm:text-sm text-zinc-300 hover:text-white transition-colors"
+                                        className="text-base sm:text-sm text-zinc-300 hover:text-white transition-colors"
                                     >
                                         {link.name}
                                     </Link>
@@ -60,20 +57,20 @@ export default function Footer() {
 
                     {/* Column 3: Connect */}
                     <div className="md:col-span-4 space-y-4">
-                        <h4 className="text-[11px] font-mono font-semibold uppercase tracking-widest text-zinc-400">
+                        <h4 className="text-xs sm:text-[11px] font-mono font-semibold uppercase tracking-widest text-zinc-400">
                             CONNECT
                         </h4>
-                        <ul className="space-y-2.5">
+                        <ul className="space-y-3 sm:space-y-2.5">
                             {SOCIAL_LINKS.map((social) => (
                                 <li key={social.name}>
                                     <a
                                         href={social.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-xs sm:text-sm text-zinc-300 hover:text-white transition-colors inline-flex items-center gap-1 group"
+                                        className="text-base sm:text-sm text-zinc-300 hover:text-white transition-colors inline-flex items-center gap-1.5 group"
                                     >
                                         <span>{social.name}</span>
-                                        <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+                                        <ArrowUpRight className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
                                     </a>
                                 </li>
                             ))}
@@ -83,7 +80,7 @@ export default function Footer() {
                             <p className="text-xs text-zinc-500">Direct Email:</p>
                             <a
                                 href={`mailto:${COMPANY.email}`}
-                                className="text-xs font-mono text-[#3B82F6] hover:underline block"
+                                className="text-sm sm:text-xs font-mono text-[#3B82F6] hover:underline block"
                             >
                                 {COMPANY.email}
                             </a>
@@ -99,9 +96,9 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Copyright Bar */}
-                <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
+                <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm sm:text-xs text-zinc-400">
                     <div className="flex items-center gap-3">
-                        <div className="w-6 h-6 rounded-full bg-zinc-900 border border-white/15 flex items-center justify-center text-[10px] font-bold text-white">
+                        <div className="w-7 h-7 sm:w-6 sm:h-6 rounded-full bg-zinc-900 border border-white/15 flex items-center justify-center text-xs sm:text-[10px] font-bold text-white">
                             N
                         </div>
                         <p>{COMPANY.copyright}</p>
@@ -120,5 +117,3 @@ export default function Footer() {
         </footer>
     );
 }
-
-

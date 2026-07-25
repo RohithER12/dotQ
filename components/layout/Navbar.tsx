@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, ArrowRight } from 'lucide-react';
+import { PhoneCall, ArrowRight } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
 import MobileMenu from './MobileMenu';
 
@@ -41,8 +41,8 @@ export default function Navbar() {
                         ))}
                     </nav>
 
-                    {/* Right: Plain Text Action Link with Arrow */}
-                    <div className="flex items-center gap-4">
+                    {/* Right: Action Link & Mobile View Icons */}
+                    <div className="flex items-center gap-2 sm:gap-4">
                         <div className="hidden sm:block">
                             <Link
                                 href="/contact"
@@ -53,12 +53,25 @@ export default function Navbar() {
                             </Link>
                         </div>
 
+                        {/* Mobile Phone Call Action Icon */}
+                        <Link
+                            href="/contact"
+                            className="md:hidden p-2 rounded-lg text-primary hover:bg-black/5 transition-colors flex items-center justify-center"
+                            aria-label="Contact us"
+                        >
+                            <PhoneCall className="w-6 h-6 text-primary" />
+                        </Link>
+
+                        {/* Mobile 2-line Hamburger Menu Icon (=) */}
                         <button
                             onClick={() => setMobileMenuOpen(true)}
-                            className="md:hidden p-2 rounded-lg text-primary hover:bg-black/5 transition-colors"
+                            className="md:hidden p-2 rounded-lg text-primary hover:bg-black/5 transition-colors flex items-center justify-center"
                             aria-label="Open navigation menu"
                         >
-                            <Menu className="w-5 h-5" />
+                            <svg className="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                                <line x1="3" y1="14.5" x2="21" y2="14.5" />
+                            </svg>
                         </button>
                     </div>
                 </div>

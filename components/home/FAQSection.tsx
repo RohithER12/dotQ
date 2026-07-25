@@ -71,7 +71,7 @@ export default function FAQSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                                className="rounded-2xl border border-border-subtle bg-canvas overflow-hidden transition-colors duration-200 hover:border-cobalt/30"
+                                className="rounded-2xl border border-border-subtle bg-canvas overflow-hidden"
                             >
                                 <button
                                     onClick={() => toggleFAQ(idx)}

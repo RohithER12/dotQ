@@ -36,9 +36,13 @@ export default function SectionHeading({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-soft-blue border border-cobalt/10 text-cobalt text-xs font-semibold uppercase tracking-wider"
+                    className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border shadow-subtle ${
+                        dark
+                            ? 'bg-white/10 border-white/20 text-white'
+                            : 'bg-white border-border-subtle text-primary'
+                    }`}
                 >
-                    <span className="w-1.5 h-1.5 rounded-full bg-cobalt" />
+                    <span className={`w-2 h-2 rounded-full ${dark ? 'bg-white' : 'bg-cobalt'}`} />
                     {eyebrow}
                 </motion.div>
             )}

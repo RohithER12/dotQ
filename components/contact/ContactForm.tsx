@@ -75,7 +75,7 @@ export default function ContactForm() {
                 {/* Form Field: Name */}
                 <div className="space-y-2">
                     <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-primary">
-                        Your Name <span className="text-cobalt">*</span>
+                        Your Name <span className="text-muted">*</span>
                     </label>
                     <input
                         type="text"
@@ -85,14 +85,14 @@ export default function ContactForm() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="e.g. Alex Morgan"
-                        className="w-full px-4 py-3.5 rounded-xl bg-canvas border border-border-subtle text-primary text-sm placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-cobalt focus:bg-white transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-canvas border border-border-subtle text-primary text-sm placeholder:text-muted focus:outline-none focus:border-gray-400 focus:bg-white transition-all"
                     />
                 </div>
 
                 {/* Form Field: Email */}
                 <div className="space-y-2">
                     <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-primary">
-                        Email Address <span className="text-cobalt">*</span>
+                        Email Address <span className="text-muted">*</span>
                     </label>
                     <input
                         type="email"
@@ -102,14 +102,14 @@ export default function ContactForm() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="e.g. alex@company.com"
-                        className="w-full px-4 py-3.5 rounded-xl bg-canvas border border-border-subtle text-primary text-sm placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-cobalt focus:bg-white transition-all"
+                        className="w-full px-4 py-3.5 rounded-xl bg-canvas border border-border-subtle text-primary text-sm placeholder:text-muted focus:outline-none focus:border-gray-400 focus:bg-white transition-all"
                     />
                 </div>
 
                 {/* Form Field: Project Details */}
                 <div className="space-y-2">
                     <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-primary">
-                        Tell Us About Your Project <span className="text-cobalt">*</span>
+                        Tell Us About Your Project <span className="text-muted">*</span>
                     </label>
                     <textarea
                         id="message"
@@ -119,7 +119,7 @@ export default function ContactForm() {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Describe your system requirements, tech stack, scale or timeline..."
-                        className="w-full px-4 py-3.5 rounded-xl bg-canvas border border-border-subtle text-primary text-sm placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-cobalt focus:bg-white transition-all resize-none"
+                        className="w-full px-4 py-3.5 rounded-xl bg-canvas border border-border-subtle text-primary text-sm placeholder:text-muted focus:outline-none focus:border-gray-400 focus:bg-white transition-all resize-none"
                     />
                 </div>
 
