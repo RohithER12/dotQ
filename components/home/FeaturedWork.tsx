@@ -66,7 +66,7 @@ export default function FeaturedWork() {
                             >
                                 {/* Top: Browser Mockup Preview */}
                                 <div className="mb-3">
-                                    {getClientVisual(client.id, client.name, client.displayUrl, client.url)}
+                                    {getClientVisual(client.id, client.name, client.displayUrl)}
                                 </div>
 
                                 {/* Bottom: Project Details */}
