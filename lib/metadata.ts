@@ -23,7 +23,7 @@ export function generateMetadata({ title, description, path }: PageMetadata): Me
             type: 'website',
             images: [
                 {
-                    url: '/assets/dotq-logo.png',
+                    url: '/icon.png',
                     width: 512,
                     height: 512,
                     alt: siteName,
@@ -34,7 +34,7 @@ export function generateMetadata({ title, description, path }: PageMetadata): Me
             card: 'summary_large_image',
             title,
             description,
-            images: ['/assets/dotq-logo.png'],
+            images: ['/icon.png'],
         },
         icons: {
             icon: [

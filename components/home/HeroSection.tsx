@@ -42,7 +42,7 @@ export default function HeroSection() {
             {/* Left Floating 3D Asset */}
             <motion.div
                 style={{ x: springX, y: springY }}
-                className="absolute top-12 sm:top-16 left-3 sm:left-6 lg:left-12 block w-24 sm:w-36 lg:w-44 pointer-events-none select-none z-0 opacity-90"
+                className="hidden sm:block absolute top-12 sm:top-16 left-3 sm:left-6 lg:left-12 w-28 sm:w-36 lg:w-44 pointer-events-none select-none z-0 opacity-90"
             >
                 <motion.div
                     animate={{
@@ -70,7 +70,7 @@ export default function HeroSection() {
             {/* Right Floating 3D Asset */}
             <motion.div
                 style={{ x: springRightX, y: springRightY }}
-                className="absolute top-28 sm:top-36 md:top-40 lg:top-48 right-3 sm:right-6 lg:right-12 block w-24 sm:w-36 lg:w-44 pointer-events-none select-none z-0 opacity-90"
+                className="hidden sm:block absolute top-28 sm:top-36 md:top-40 lg:top-48 right-3 sm:right-6 lg:right-12 w-28 sm:w-36 lg:w-44 pointer-events-none select-none z-0 opacity-90"
             >
                 <motion.div
                     animate={{
