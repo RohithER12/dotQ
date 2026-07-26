@@ -51,9 +51,9 @@ export default function ContactLeftGraphic() {
                 initial={mounted ? { opacity: 0, y: 20 } : false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="w-full max-w-[280px] sm:max-w-[340px] lg:max-w-[380px] mt-6 space-y-4 text-left"
+                className="w-full max-w-2xl mt-6 space-y-4 text-left"
             >
-                <div className="bg-white/80 backdrop-blur-md p-5 rounded-2xl border border-border-subtle shadow-nova-sm space-y-3">
+                <div className="bg-white/80 backdrop-blur-md p-5 rounded-2xl border border-border-subtle shadow-nova-sm space-y-3 w-full">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-900 flex-shrink-0">
                             <Phone className="w-5 h-5" />

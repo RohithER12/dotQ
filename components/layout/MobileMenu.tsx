@@ -36,26 +36,26 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [onClose]);
 
-    // Drawer list items matching reference design
+    // Available drawer menu items matching site structure
     const drawerItems = [
+        { name: 'About', href: '/about' },
         {
             name: 'Services',
             href: '/services',
             hasDropdown: true,
             subItems: [
-                { name: 'Mobile App Development (Flutter)', href: '/#services' },
-                { name: 'Web Engineering (Next.js)', href: '/#services' },
-                { name: 'Custom Backend Systems', href: '/#services' },
-                { name: 'E-Commerce Solutions', href: '/#services' },
-                { name: 'AI & Automation', href: '/#services' },
+                { name: 'All Services', href: '/services' },
+                { name: 'Web & Mobile App Development', href: '/services#web-mobile-dev' },
+                { name: 'Custom Backend & Microservices', href: '/services#custom-backend' },
+                { name: 'E-Commerce Solutions', href: '/services#ecommerce-dev' },
+                { name: 'Business Automation', href: '/services#business-automation' },
+                { name: 'Performance Engineering', href: '/services#performance-engineering' },
+                { name: 'AI Integration', href: '/services#ai-integration' },
             ],
         },
-        { name: 'Solutions', href: '/#services' },
-        { name: 'Industries', href: '/#services' },
         { name: 'Works', href: '/work' },
-        { name: 'About', href: '/about' },
-        { name: 'Careers', href: '/contact' },
-        { name: 'Partnership', href: '/contact' },
+        { name: 'Process', href: '/#process' },
+        { name: 'Contact', href: '/contact' },
     ];
 
     return (

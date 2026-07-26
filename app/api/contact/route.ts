@@ -131,12 +131,11 @@ Source: DotQ Website Contact Form
 
         // 4. Send email via Resend if API key is present
         if (!apiKey) {
-            console.warn('[CONTACT API WARN] RESEND_API_KEY is not defined in environment. Form submission processed safely.');
-            // Graceful response if API key is pending configuration
-            return NextResponse.json({
-                success: true,
-                message: "Thank you! Your message has been sent successfully. We’ll get back to you shortly.",
-            });
+            console.error('[CONTACT API ERROR] RESEND_API_KEY is missing in environment variables.');
+            return NextResponse.json(
+                { success: false, message: "Email service is currently unavailable. Please try again later or contact us directly." },
+                { status: 500 }
+            );
         }
 
         const resend = new Resend(apiKey);

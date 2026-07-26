@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import SectionHeading from '@/components/ui/SectionHeading';
 import { TECHNOLOGY_CATEGORIES } from '@/lib/constants';
 
 export default function DeliveryGrid() {
@@ -15,27 +16,13 @@ export default function DeliveryGrid() {
     return (
         <section className="py-24 sm:py-32 bg-black text-white relative border-t border-b border-white/10 overflow-hidden" id="tech-stack">
             <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Title matching Nova dark reference */}
-                <div className="mb-14 sm:mb-20 max-w-4xl">
-                    <motion.p
-                        initial={mounted ? { opacity: 0, y: 10 } : false}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-3"
-                    >
-                        TECHNOLOGY STACK
-                    </motion.p>
-                    <motion.h2
-                        initial={mounted ? { opacity: 0, y: 15 } : false}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-1xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-white font-sans text-balance leading-[1.1]"
-                    >
-                        Technologies We Use — Built with Modern Engineering Tools
-                    </motion.h2>
-                </div>
+                {/* Section Title using standard SectionHeading component */}
+                <SectionHeading
+                    eyebrow="TECHNOLOGY STACK"
+                    title="Technologies We Use — Built with Modern Engineering Tools"
+                    dark={true}
+                    className="mb-14 sm:mb-20 max-w-4xl"
+                />
 
                 {/* 4 Technology Category Cards matching Nova dark style */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">

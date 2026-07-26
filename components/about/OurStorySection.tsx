@@ -8,8 +8,8 @@ import { ABOUT_STORY } from '@/lib/aboutData';
 // Animated Counter component that counts up when scrolled into view
 function AnimatedCounter({ value }: { value: string }) {
     const ref = useRef<HTMLSpanElement>(null);
-    const isInView = useInView(ref, { once: true, margin: '-40px' });
-    const [displayVal, setDisplayVal] = useState('0');
+    const isInView = useInView(ref, { once: true, amount: 0.1 });
+    const [displayVal, setDisplayVal] = useState(value);
 
     useEffect(() => {
         if (!isInView) return;
@@ -23,7 +23,7 @@ function AnimatedCounter({ value }: { value: string }) {
         const target = parseFloat(match[1]);
         const suffix = match[2] || '';
         const isDecimal = match[1].includes('.');
-        const duration = 1800; // 1.8s count up animation duration
+        const duration = 1600; // 1.6s count up animation duration
         const startTime = performance.now();
 
         const updateCount = (currentTime: number) => {
@@ -46,6 +46,7 @@ function AnimatedCounter({ value }: { value: string }) {
             }
         };
 
+        setDisplayVal(isDecimal ? `0.0${suffix}` : `0${suffix}`);
         requestAnimationFrame(updateCount);
     }, [isInView, value]);
 

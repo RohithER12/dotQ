@@ -87,7 +87,7 @@ export default function AboutHero() {
                             initial={mounted ? { opacity: 0, y: 20 } : false}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.3 }}
-                            className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
+                            className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-3.5 sm:gap-4"
                         >
                             <Button href={ABOUT_HERO.primaryCta.href} size="lg" variant="primary" showArrow={true}>
                                 {ABOUT_HERO.primaryCta.text}
