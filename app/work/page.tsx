@@ -1,3 +1,4 @@
+import WorksHero from '@/components/work/WorksHero';
 import FeaturedWork from '@/components/home/FeaturedWork';
 import FinalCTA from '@/components/home/FinalCTA';
 import { generateMetadata } from '@/lib/metadata';
@@ -10,9 +11,10 @@ export const metadata = generateMetadata({
 
 export default function WorkPage() {
     return (
-        <div className="pt-8 sm:pt-12">
+        <main className="min-h-screen bg-canvas">
+            <WorksHero />
             <FeaturedWork />
             <FinalCTA />
-        </div>
+        </main>
     );
 }

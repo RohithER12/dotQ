@@ -40,7 +40,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     const drawerItems = [
         {
             name: 'Services',
-            href: '/#services',
+            href: '/services',
             hasDropdown: true,
             subItems: [
                 { name: 'Mobile App Development (Flutter)', href: '/#services' },
@@ -53,7 +53,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         { name: 'Solutions', href: '/#services' },
         { name: 'Industries', href: '/#services' },
         { name: 'Works', href: '/work' },
-        { name: 'About', href: '/#about' },
+        { name: 'About', href: '/about' },
         { name: 'Careers', href: '/contact' },
         { name: 'Partnership', href: '/contact' },
     ];

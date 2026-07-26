@@ -22,8 +22,8 @@ export default function BrowserMockup({
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
 
-    // Compute live screenshot URL if liveUrl is provided and previewImage is not explicitly passed
-    const screenshotUrl = previewImage || (liveUrl ? `https://api.microlink.io/?url=${encodeURIComponent(liveUrl)}&screenshot=true&embed=screenshot.url` : null);
+    // Compute live screenshot URL with 1280x800 desktop viewport starting at y=0 (header navigation)
+    const screenshotUrl = previewImage || (liveUrl ? `https://api.microlink.io/?url=${encodeURIComponent(liveUrl)}&screenshot=true&embed=screenshot.url&viewport.width=1280&viewport.height=800` : null);
 
     return (
         <div className={`rounded-2xl overflow-hidden bg-white border border-border-subtle text-text-primary ${className}`}>
@@ -51,7 +51,7 @@ export default function BrowserMockup({
             </div>
 
             {/* Browser Canvas Content */}
-            <div className="relative bg-canvas overflow-hidden min-h-[160px] sm:min-h-[190px] flex items-center justify-center">
+            <div className="relative bg-canvas overflow-hidden aspect-[16/10] w-full flex items-start justify-center">
                 {screenshotUrl && !hasError ? (
                     <>
                         {/* Loading Skeleton */}
@@ -64,7 +64,7 @@ export default function BrowserMockup({
                         <img
                             src={screenshotUrl}
                             alt={`${title || url} preview`}
-                            className={`w-full h-auto object-cover object-top transition-all duration-500 group-hover:scale-[1.03] ${
+                            className={`w-full h-full object-cover object-top transition-all duration-500 group-hover:scale-[1.03] ${
                                 isLoading ? 'opacity-0' : 'opacity-100'
                             }`}
                             onLoad={() => setIsLoading(false)}

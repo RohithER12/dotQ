@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { PhoneCall, ArrowRight } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
 import MobileMenu from './MobileMenu';
 
 export default function Navbar() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     return (
         <>
@@ -30,15 +32,20 @@ export default function Navbar() {
 
                     {/* Centre Navigation Links */}
                     <nav className="hidden md:flex items-center gap-8 lg:gap-10">
-                        {NAV_LINKS.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className="text-sm font-medium text-black hover:text-cobalt transition-colors"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
+                        {NAV_LINKS.map((link) => {
+                            const isActive = pathname === link.href || (link.href !== '/' && !link.href.includes('#') && pathname?.startsWith(link.href));
+                            return (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className={`text-sm transition-colors ${
+                                        isActive ? 'text-cobalt font-semibold' : 'text-black font-medium hover:text-cobalt'
+                                    }`}
+                                >
+                                    {link.name}
+                                </Link>
+                            );
+                        })}
                     </nav>
 
                     {/* Right: Action Link & Mobile View Icons */}

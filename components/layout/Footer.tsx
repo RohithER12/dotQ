@@ -3,17 +3,17 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { NAV_LINKS, COMPANY, SOCIAL_LINKS } from '@/lib/constants';
+import { NAV_LINKS, COMPANY, SOCIAL_LINKS, SERVICES } from '@/lib/constants';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
     return (
         <footer className="mt-auto border-t border-white/10 bg-black text-white pt-16 pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden select-none">
             <div className="max-w-[1240px] mx-auto">
-                {/* Top Section: 3 Main Columns */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 pb-14">
+                {/* Top Section: 4 Main Columns */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 pb-14">
                     {/* Column 1: Brand & Description */}
-                    <div className="md:col-span-5 space-y-4">
+                    <div className="md:col-span-4 space-y-4">
                         <Link href="/" className="inline-block group mb-1">
                             <Image
                                 src="/assets/dot%20q.png"
@@ -31,13 +31,13 @@ export default function Footer() {
                             </p>
                         </div>
 
-                        <p className="text-sm sm:text-xs text-zinc-400 max-w-md leading-relaxed pt-1">
+                        <p className="text-sm sm:text-xs text-zinc-400 max-w-sm leading-relaxed pt-1">
                             Premier IT company in India offering freelance services, web development, mobile app development with Flutter, e-commerce solutions, and custom software for global enterprises.
                         </p>
                     </div>
 
                     {/* Column 2: Navigation */}
-                    <div className="md:col-span-3 space-y-4">
+                    <div className="md:col-span-2 space-y-4">
                         <h4 className="text-xs sm:text-[11px] font-mono font-semibold uppercase tracking-widest text-zinc-400">
                             NAVIGATION
                         </h4>
@@ -55,8 +55,27 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 3: Connect */}
-                    <div className="md:col-span-4 space-y-4">
+                    {/* Column 3: Services */}
+                    <div className="md:col-span-3 space-y-4">
+                        <h4 className="text-xs sm:text-[11px] font-mono font-semibold uppercase tracking-widest text-zinc-400">
+                            SERVICES
+                        </h4>
+                        <ul className="space-y-3 sm:space-y-2.5">
+                            {SERVICES.map((service) => (
+                                <li key={service.id}>
+                                    <Link
+                                        href="/#services"
+                                        className="text-base sm:text-sm text-zinc-300 hover:text-white transition-colors block"
+                                    >
+                                        {service.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Column 4: Connect */}
+                    <div className="md:col-span-3 space-y-4">
                         <h4 className="text-xs sm:text-[11px] font-mono font-semibold uppercase tracking-widest text-zinc-400">
                             CONNECT
                         </h4>
@@ -77,12 +96,12 @@ export default function Footer() {
                         </ul>
 
                         <div className="pt-2 space-y-1">
-                            <p className="text-xs text-zinc-500">Direct Email:</p>
+                            <p className="text-xs text-zinc-500">Phone Enquiry:</p>
                             <a
-                                href={`mailto:${COMPANY.email}`}
+                                href={`tel:${COMPANY.phone.replace(/\s+/g, '')}`}
                                 className="text-sm sm:text-xs font-mono text-[#3B82F6] hover:underline block"
                             >
-                                {COMPANY.email}
+                                {COMPANY.phone}
                             </a>
                         </div>
                     </div>

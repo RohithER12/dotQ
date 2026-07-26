@@ -93,7 +93,7 @@ export default function ProcessSection() {
                             strokeDasharray="120 800"
                             animate={{ strokeDashoffset: [920, -920] }}
                             transition={{
-                                duration: 20,
+                                duration: 30,
                                 repeat: Infinity,
                                 ease: 'linear',
                             }}
