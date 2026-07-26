@@ -50,6 +50,11 @@ export default function RootLayout({
 
     return (
         <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
+            <head>
+                <link rel="icon" href="/favicon.ico" sizes="48x48" />
+                <link rel="icon" href="/icon.png" sizes="512x512" type="image/png" />
+                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+            </head>
             <body className="antialiased bg-white text-text-primary font-sans" suppressHydrationWarning>
                 <script
                     type="application/ld+json"

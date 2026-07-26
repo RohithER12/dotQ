@@ -37,12 +37,18 @@ export function generateMetadata({ title, description, path }: PageMetadata): Me
             images: ['/assets/dotq-logo.png'],
         },
         icons: {
-            icon: '/assets/fav%20icon%2002.png',
-            shortcut: '/assets/fav%20icon%2002.png',
-            apple: '/assets/fav%20icon%2002.png',
+            icon: [
+                { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+                { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+            ],
+            shortcut: '/favicon.ico',
+            apple: '/apple-touch-icon.png',
         },
         alternates: {
             canonical: url,
+        },
+        verification: {
+            google: 'googlee97bf558361105d9',
         },
     };
 }
