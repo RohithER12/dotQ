@@ -8,7 +8,7 @@ interface PageMetadata {
 
 export function generateMetadata({ title, description, path }: PageMetadata): Metadata {
     const siteName = 'DotQ';
-    const baseUrl = 'https://dotq.in';
+    const baseUrl = 'https://www.dotq.in';
     const url = `${baseUrl}${path}`;
 
     return {

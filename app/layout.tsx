@@ -32,8 +32,8 @@ export default function RootLayout({
         '@type': 'Organization',
         name: 'DotQ',
         legalName: 'Dotq IT Automation',
-        url: 'https://dotq.in',
-        logo: 'https://dotq.in/assets/dotq-logo.png',
+        url: 'https://www.dotq.in',
+        logo: 'https://www.dotq.in/icon.png',
         sameAs: [
             'https://www.instagram.com/dotq__/',
             'https://www.linkedin.com/in/dot-q-b667393a8/',
