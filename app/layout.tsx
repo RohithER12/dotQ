@@ -5,7 +5,7 @@ import PageShell from "@/components/layout/PageShell";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/ui/SmoothScroll";
-import { DEFAULT_METADATA } from "@/lib/metadata";
+import { DEFAULT_METADATA, siteUrl } from "@/lib/metadata";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -32,8 +32,8 @@ export default function RootLayout({
         '@type': 'Organization',
         name: 'DotQ',
         legalName: 'Dotq IT Automation',
-        url: 'https://www.dotq.in',
-        logo: 'https://www.dotq.in/icon.png',
+        url: siteUrl,
+        logo: `${siteUrl}/icon-512x512.png`,
         sameAs: [
             'https://www.instagram.com/dotq__/',
             'https://www.linkedin.com/in/dot-q-b667393a8/',
@@ -50,11 +50,6 @@ export default function RootLayout({
 
     return (
         <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
-            <head>
-                <link rel="icon" href="/favicon.ico" sizes="48x48" />
-                <link rel="icon" href="/icon.png" sizes="512x512" type="image/png" />
-                <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-            </head>
             <body className="antialiased bg-white text-text-primary font-sans" suppressHydrationWarning>
                 <script
                     type="application/ld+json"

@@ -18,8 +18,8 @@ export default function ContactHero() {
                 transition={{ duration: 0.5 }}
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-primary text-xs font-semibold uppercase tracking-wider border border-border-subtle shadow-subtle"
             >
-                <span className="w-2 h-2 rounded-full bg-cobalt" />
-                <span>CONTACT DOTQ</span>
+                <span className="w-2 h-2 rounded-full bg-cobalt animate-pulse" />
+                <span>CONTACT DOTQ • KOCHI, INDIA</span>
             </motion.div>
 
             <motion.h1

@@ -4,10 +4,9 @@ import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import SectionHeading from '@/components/ui/SectionHeading';
-import BrowserMockup from '@/components/ui/BrowserMockup';
 import Button from '@/components/ui/Button';
 import { CLIENTS } from '@/lib/constants';
-import { ArrowRight, ArrowUpRight, ShoppingBag, Building2, Globe, Store, Compass, Sparkles } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function FeaturedWork() {
     const pathname = usePathname();
@@ -18,26 +17,6 @@ export default function FeaturedWork() {
         setMounted(true);
     }, []);
 
-    // Render exact local screenshot visual per client inside BrowserMockup
-    const getClientVisual = (id: string, name: string, urlDisplay: string) => {
-        switch (id) {
-            case 'naiksha':
-                return <BrowserMockup url={urlDisplay} previewImage="/Works IMG/naiksha.png" title={name} className="w-full" />;
-            case 'yugen-bags':
-                return <BrowserMockup url={urlDisplay} previewImage="/Works IMG/yugen bags.png" title={name} className="w-full" />;
-            case 'fourteen-yards':
-                return <BrowserMockup url={urlDisplay} previewImage="/Works IMG/fourteen yards.png" title={name} className="w-full" />;
-            case 'breta-world':
-                return <BrowserMockup url={urlDisplay} previewImage="/Works IMG/breta world.png" title={name} className="w-full" />;
-            case 'myson':
-                return <BrowserMockup url={urlDisplay} previewImage="/Works IMG/myson.png" title={name} className="w-full" />;
-            case 'kasera-interiors':
-                return <BrowserMockup url={urlDisplay} previewImage="/Works IMG/kasera.png" title={name} className="w-full" />;
-            default:
-                return <BrowserMockup url={urlDisplay} title={name} className="w-full" />;
-        }
-    };
-
     return (
         <section id="work" className="py-20 sm:py-28 bg-[#F2F2F2]">
             <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,11 +24,11 @@ export default function FeaturedWork() {
                     eyebrow="CLIENT PORTFOLIO"
                     title="Our Clients & Selected Work"
                     description="Modern web platforms, e-commerce storefronts, and architectural portals engineered for high growth."
-                    className="mb-14 sm:mb-20"
+                    className="mb-12 sm:mb-16"
                 />
 
-                {/* 6 Client Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-10 lg:gap-x-12 gap-y-6 sm:gap-y-8">
+                {/* Compact 2-Column Project Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-8">
                     {CLIENTS.map((client, idx) => (
                         <motion.div
                             key={client.id}
@@ -62,21 +41,41 @@ export default function FeaturedWork() {
                                 href={client.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group block h-full flex flex-col justify-between cursor-pointer focus:outline-none"
+                                className="relative block w-full h-[280px] sm:h-[330px] md:h-[360px] rounded-[24px] sm:rounded-[28px] overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 bg-slate-900"
                             >
-                                {/* Top: Browser Mockup Preview */}
-                                <div className="mb-3">
-                                    {getClientVisual(client.id, client.name, client.displayUrl)}
+                                {/* Top-Right Glass External Link Icon */}
+                                <div className="absolute top-5 right-5 z-30 w-10 h-10 rounded-full bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center text-white opacity-90 group-hover:bg-white group-hover:text-black group-hover:scale-110 transition-all duration-300 shadow-md">
+                                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                                 </div>
 
-                                {/* Bottom: Project Details */}
-                                <div className="px-2 sm:px-3 space-y-2">
-                                    <h3 className="font-poppins text-xl font-semibold text-primary">
+                                {/* Full-Bleed Atmospheric Project Image */}
+                                <div className="absolute inset-0 w-full h-full overflow-hidden">
+                                    <img
+                                        src={client.previewImage}
+                                        alt={`${client.name} project preview`}
+                                        className="w-full h-full object-cover object-top opacity-90 transition-transform duration-700 ease-out group-hover:scale-105"
+                                        loading="lazy"
+                                    />
+                                </div>
+
+                                {/* Gradient Vignette Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10 pointer-events-none z-10" />
+
+                                {/* Bottom Left Overlay: Title + Glass Pill Badges */}
+                                <div className="absolute bottom-5 left-5 right-14 sm:bottom-6 sm:left-6 sm:right-16 z-20 space-y-2">
+                                    <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-white font-sans drop-shadow-md">
                                         {client.name}
                                     </h3>
-                                    <p className="font-poppins text-sm text-secondary leading-relaxed line-clamp-2">
-                                        {client.description}
-                                    </p>
+                                    <div className="flex flex-wrap items-center gap-2">
+                                        {client.tags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="px-3.5 py-1 rounded-full border border-white/35 bg-white/15 backdrop-blur-md text-xs font-medium text-white shadow-sm hover:bg-white/25 transition-all"
+                                            >
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </a>
                         </motion.div>
@@ -90,7 +89,7 @@ export default function FeaturedWork() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="mt-14 sm:mt-16 flex justify-center"
+                        className="mt-12 sm:mt-16 flex justify-center"
                     >
                         <Button href="/work" size="lg" variant="primary" showArrow={true}>
                             View All Selected Work
@@ -101,4 +100,3 @@ export default function FeaturedWork() {
         </section>
     );
 }
-

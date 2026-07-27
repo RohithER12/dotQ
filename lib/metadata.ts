@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+export const siteUrl = 'https://www.dotq.in';
+
 interface PageMetadata {
     title: string;
     description: string;
@@ -8,22 +10,22 @@ interface PageMetadata {
 
 export function generateMetadata({ title, description, path }: PageMetadata): Metadata {
     const siteName = 'DotQ';
-    const baseUrl = 'https://www.dotq.in';
-    const url = `${baseUrl}${path}`;
+    const cleanPath = path.startsWith('/') ? path : `/${path}`;
+    const canonicalUrl = cleanPath === '/' ? `${siteUrl}/` : `${siteUrl}${cleanPath}`;
 
     return {
         title,
         description,
-        metadataBase: new URL(baseUrl),
+        metadataBase: new URL(siteUrl),
         openGraph: {
             title,
             description,
-            url,
+            url: canonicalUrl,
             siteName,
             type: 'website',
             images: [
                 {
-                    url: '/icon.png',
+                    url: '/icon-512x512.png',
                     width: 512,
                     height: 512,
                     alt: siteName,
@@ -34,18 +36,25 @@ export function generateMetadata({ title, description, path }: PageMetadata): Me
             card: 'summary_large_image',
             title,
             description,
-            images: ['/icon.png'],
+            images: ['/icon-512x512.png'],
         },
         icons: {
             icon: [
-                { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
-                { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+                { url: '/favicon.ico', sizes: 'any' },
+                { url: '/icon-96x96.png', sizes: '96x96', type: 'image/png' },
+                { url: '/icon-48x48.png', sizes: '48x48', type: 'image/png' },
+                { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+                { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
             ],
             shortcut: '/favicon.ico',
-            apple: '/apple-touch-icon.png',
+            apple: {
+                url: '/apple-touch-icon.png',
+                sizes: '180x180',
+                type: 'image/png',
+            },
         },
         alternates: {
-            canonical: url,
+            canonical: canonicalUrl,
         },
         verification: {
             google: 'googlee97bf558361105d9',

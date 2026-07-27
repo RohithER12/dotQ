@@ -1,11 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { COMPANY } from '@/lib/constants';
+import { generateMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = generateMetadata({
     title: 'Terms and Conditions | DotQ IT & Automation',
     description: 'Terms and Conditions for DotQ IT & Automation.',
-};
+    path: '/terms',
+});
 
 export default function TermsPage() {
     return (

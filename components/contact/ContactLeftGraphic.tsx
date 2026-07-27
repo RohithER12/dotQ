@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Phone, Clock, ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { Phone, Clock, ShieldCheck, ArrowUpRight, MapPin } from 'lucide-react';
 import { COMPANY, SOCIAL_LINKS } from '@/lib/constants';
 
 export default function ContactLeftGraphic() {
@@ -53,10 +53,26 @@ export default function ContactLeftGraphic() {
                 transition={{ duration: 0.7, delay: 0.3 }}
                 className="w-full max-w-2xl mt-6 space-y-4 text-left"
             >
-                <div className="bg-white/80 backdrop-blur-md p-5 rounded-2xl border border-border-subtle shadow-nova-sm space-y-3 w-full">
+                <div className="bg-white/80 backdrop-blur-md p-5 rounded-2xl border border-border-subtle shadow-nova-sm space-y-3.5 w-full">
+                    {/* Location / Headquarters */}
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-900 flex-shrink-0">
-                            <Phone className="w-5 h-5" />
+                            <MapPin className="w-5 h-5 text-cobalt" />
+                        </div>
+                        <div>
+                            <span className="block text-xs font-semibold uppercase tracking-wider text-secondary">
+                                Location / Headquarters
+                            </span>
+                            <span className="text-sm font-medium text-primary block">
+                                {COMPANY.location}
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Phone Number */}
+                    <div className="flex items-center gap-3 pt-2.5 border-t border-gray-200">
+                        <div className="w-10 h-10 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-900 flex-shrink-0">
+                            <Phone className="w-5 h-5 text-cobalt" />
                         </div>
                         <div>
                             <span className="block text-xs font-semibold uppercase tracking-wider text-secondary">

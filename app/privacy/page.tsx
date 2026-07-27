@@ -1,11 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { COMPANY } from '@/lib/constants';
+import { generateMetadata } from '@/lib/metadata';
 
-export const metadata = {
+export const metadata = generateMetadata({
     title: 'Privacy Policy | DotQ IT & Automation',
     description: 'Privacy Policy for DotQ IT & Automation.',
-};
+    path: '/privacy',
+});
 
 export default function PrivacyPolicyPage() {
     return (

@@ -1,26 +1,13 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from 'next';
+import { siteUrl } from '@/lib/metadata';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://dotq.in'
+    const routes = ['', '/about', '/services', '/work', '/contact', '/privacy', '/terms'];
 
-    return [
-        {
-            url: baseUrl,
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 1,
-        },
-        {
-            url: `${baseUrl}/about`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: `${baseUrl}/contact`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-    ]
+    return routes.map((route) => ({
+        url: route === '' ? `${siteUrl}/` : `${siteUrl}${route}`,
+        lastModified: new Date(),
+        changeFrequency: route === '' ? 'weekly' : 'monthly',
+        priority: route === '' ? 1 : 0.8,
+    }));
 }

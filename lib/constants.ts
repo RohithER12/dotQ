@@ -2,7 +2,7 @@
 export const NAV_LINKS = [
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Process', href: '/#process' },
+    // { name: 'Process', href: '/#process' },
     { name: 'Works', href: '/work' },
     { name: 'Contact', href: '/contact' },
 ];
@@ -14,7 +14,9 @@ export const COMPANY = {
     tagline: 'Engineering The Impossible.',
     description: 'Premier IT company in India offering freelance services, web development, mobile app development with Flutter, e-commerce solutions, and custom software for global enterprises.',
     email: 'rohither.tech@gmail.com',
-    phone: '+91 90722 06389',
+    phone: '+91 9207209856',
+    location: 'Kochi, Kerala, India',
+    city: 'Kochi, India',
     copyright: '© 2026 Dotq IT Automation. All rights reserved.',
 };
 
@@ -212,8 +214,11 @@ export const CLIENTS = [
         url: 'https://www.naiksha.com',
         displayUrl: 'www.naiksha.com',
         description: 'Next-generation e-commerce platform with immersive product visualization.',
-        tags: ['Next.js', 'E-Commerce', 'Product Visualization'],
+        tags: ['E-Commerce', 'Web Design'],
         category: 'E-Commerce',
+        cardStyle: 'browser',
+        bgGradient: 'from-[#3b5966] via-[#2d4652] to-[#1c2e37]',
+        previewImage: '/Works IMG/naiksha_stock.png',
     },
     {
         id: 'yugen-bags',
@@ -221,8 +226,11 @@ export const CLIENTS = [
         url: 'https://yugenbags.com',
         displayUrl: 'yugenbags.com',
         description: 'Direct-to-consumer digital storefront engineered for high conversion rates.',
-        tags: ['E-Commerce', 'D2C Brand', 'Retail Tech'],
+        tags: ['D2C Brand', 'Retail Tech'],
         category: 'E-Commerce & Retail',
+        cardStyle: 'image',
+        bgGradient: 'from-[#2d4030] via-[#1f2e22] to-[#121c14]',
+        previewImage: '/Works IMG/yugen_bags_stock.png',
     },
     {
         id: 'fourteen-yards',
@@ -230,8 +238,11 @@ export const CLIENTS = [
         url: 'https://fourteenyardsarchitecturestudio.com',
         displayUrl: 'fourteenyardsarchitecturestudio.com',
         description: 'Minimalist architectural portfolio and design studio showcase.',
-        tags: ['Architecture', 'Portfolio', 'UI/UX Design'],
+        tags: ['Architecture', 'Portfolio'],
         category: 'Architecture & Design',
+        cardStyle: 'browser',
+        bgGradient: 'from-[#4a3e3d] via-[#352c2b] to-[#211a19]',
+        previewImage: '/Works IMG/fourteen_yards_stock.png',
     },
     {
         id: 'breta-world',
@@ -239,8 +250,11 @@ export const CLIENTS = [
         url: 'https://bretaworld.com',
         displayUrl: 'bretaworld.com',
         description: 'Enterprise global web presence and interactive corporate platform.',
-        tags: ['Corporate Web', 'Next.js', 'Enterprise'],
+        tags: ['Corporate Web', 'Enterprise'],
         category: 'Corporate & Tech',
+        cardStyle: 'image',
+        bgGradient: 'from-[#1e3a8a] via-[#172554] to-[#0f172a]',
+        previewImage: '/Works IMG/breta_world_stock.png',
     },
     {
         id: 'myson',
@@ -248,8 +262,11 @@ export const CLIENTS = [
         url: 'https://myson.in',
         displayUrl: 'myson.in',
         description: 'High-performance e-commerce storefront with optimized checkout.',
-        tags: ['E-Commerce', 'Web App', 'Brand Store'],
+        tags: ['E-Commerce', 'Brand Store'],
         category: 'E-Commerce',
+        cardStyle: 'browser',
+        bgGradient: 'from-[#3b1f47] via-[#291433] to-[#170a1e]',
+        previewImage: '/Works IMG/myson_stock.png',
     },
     {
         id: 'kasera-interiors',
@@ -257,8 +274,11 @@ export const CLIENTS = [
         url: 'https://www.keserainteriors.com/',
         displayUrl: 'keserainteriors.com',
         description: 'Luxury interior design portfolio highlighting key architectural projects.',
-        tags: ['Interior Design', 'Portfolio', 'Custom Web'],
+        tags: ['Interior Design', 'Portfolio'],
         category: 'Interior Design',
+        cardStyle: 'image',
+        bgGradient: 'from-[#4a4238] via-[#332d26] to-[#1c1814]',
+        previewImage: '/Works IMG/kasera_interiors_stock.png',
     },
 ];
 
