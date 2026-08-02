@@ -218,7 +218,9 @@ export const CLIENTS = [
         category: 'E-Commerce',
         cardStyle: 'browser',
         bgGradient: 'from-[#3b5966] via-[#2d4652] to-[#1c2e37]',
-        previewImage: '/Works IMG/naiksha_stock.png',
+        previewImage: '/Works IMG/Naiksha erk img 02.jpg',
+        objectFit: 'object-cover',
+        objectPosition: 'object-center',
     },
     {
         id: 'yugen-bags',
@@ -254,7 +256,7 @@ export const CLIENTS = [
         category: 'Corporate & Tech',
         cardStyle: 'image',
         bgGradient: 'from-[#1e3a8a] via-[#172554] to-[#0f172a]',
-        previewImage: '/Works IMG/breta_world_stock.png',
+        previewImage: '/Works IMG/kreta world wrk img.jpg',
     },
     {
         id: 'myson',
@@ -266,7 +268,7 @@ export const CLIENTS = [
         category: 'E-Commerce',
         cardStyle: 'browser',
         bgGradient: 'from-[#3b1f47] via-[#291433] to-[#170a1e]',
-        previewImage: '/Works IMG/myson_stock.png',
+        previewImage: '/Works IMG/myson wrk img.jpg',
     },
     {
         id: 'kasera-interiors',
@@ -278,7 +280,7 @@ export const CLIENTS = [
         category: 'Interior Design',
         cardStyle: 'image',
         bgGradient: 'from-[#4a4238] via-[#332d26] to-[#1c1814]',
-        previewImage: '/Works IMG/kasera_interiors_stock.png',
+        previewImage: '/Works IMG/kasera interiors wrk img.jpg',
     },
 ];
 

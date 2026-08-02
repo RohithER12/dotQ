@@ -53,7 +53,7 @@ export default function FeaturedWork() {
                                     <img
                                         src={client.previewImage}
                                         alt={`${client.name} project preview`}
-                                        className="w-full h-full object-cover object-top opacity-90 transition-transform duration-700 ease-out group-hover:scale-105"
+                                        className={`w-full h-full ${client.objectFit || 'object-cover'} ${client.objectPosition || 'object-top'} opacity-90 transition-transform duration-700 ease-out group-hover:scale-105`}
                                         loading="lazy"
                                     />
                                 </div>
