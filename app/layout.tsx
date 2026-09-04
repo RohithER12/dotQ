@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Poppins, Outfit } from "next/font/google";
 import "./globals.css";
 import PageShell from "@/components/layout/PageShell";
 import Navbar from "@/components/layout/Navbar";
@@ -17,6 +17,13 @@ const poppins = Poppins({
     subsets: ["latin"],
     weight: ["400", "500", "600", "700"],
     variable: "--font-poppins",
+    display: "swap",
+});
+
+const outfit = Outfit({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700", "800", "900"],
+    variable: "--font-outfit",
     display: "swap",
 });
 
@@ -49,7 +56,7 @@ export default function RootLayout({
     };
 
     return (
-        <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
+        <html lang="en" className={`${inter.variable} ${poppins.variable} ${outfit.variable}`} suppressHydrationWarning>
             <body className="antialiased bg-white text-text-primary font-sans" suppressHydrationWarning>
                 <script
                     type="application/ld+json"

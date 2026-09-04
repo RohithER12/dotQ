@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Button from '@/components/ui/Button';
@@ -18,7 +19,7 @@ export default function FeaturedWork() {
     }, []);
 
     return (
-        <section id="work" className="py-20 sm:py-28 bg-[#F2F2F2]">
+        <section id="work" className="py-20 sm:py-28 bg-[#F2F2F2] [content-visibility:auto]">
             <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
                 <SectionHeading
                     eyebrow="CLIENT PORTFOLIO"
@@ -35,33 +36,36 @@ export default function FeaturedWork() {
                             initial={mounted ? { opacity: 0, y: 30 } : false}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: idx * 0.08 }}
+                            transition={{ duration: 0.4, delay: Math.min(idx * 0.05, 0.2) }}
+                            className="transform-gpu"
                         >
                             <a
                                 href={client.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="relative block w-full h-[280px] sm:h-[330px] md:h-[360px] rounded-[24px] sm:rounded-[28px] overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 bg-slate-900"
+                                className="relative block w-full h-[280px] sm:h-[330px] md:h-[360px] rounded-[24px] sm:rounded-[28px] overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-slate-900 transform-gpu contain-paint"
                             >
                                 {/* Top-Right Glass External Link Icon */}
-                                <div className="absolute top-5 right-5 z-30 w-10 h-10 rounded-full bg-white/15 backdrop-blur-md border border-white/25 flex items-center justify-center text-white opacity-90 group-hover:bg-white group-hover:text-black group-hover:scale-110 transition-all duration-300 shadow-md">
+                                <div className="absolute top-5 right-5 z-30 w-10 h-10 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-white opacity-90 group-hover:bg-white group-hover:text-black group-hover:scale-110 transition-all duration-300 shadow-md transform-gpu">
                                     <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                                 </div>
 
                                 {/* Full-Bleed Atmospheric Project Image */}
-                                <div className="absolute inset-0 w-full h-full overflow-hidden">
-                                    <img
+                                <div className="absolute inset-0 w-full h-full overflow-hidden transform-gpu">
+                                    <Image
                                         src={client.previewImage}
                                         alt={`${client.name} project preview`}
-                                        className={`w-full h-full ${client.objectFit || 'object-cover'} ${client.objectPosition || 'object-top'} opacity-90 transition-transform duration-700 ease-out group-hover:scale-105`}
-                                        loading="lazy"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        decoding="async"
+                                        className={`w-full h-full ${client.objectFit || 'object-cover'} ${client.objectPosition || 'object-top'} opacity-90 transition-transform duration-500 ease-out group-hover:scale-105 transform-gpu will-change-transform`}
                                     />
                                 </div>
 
                                 {/* Gradient Vignette Overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10 pointer-events-none z-10" />
 
-                                {/* Bottom Left Overlay: Title + Glass Pill Badges */}
+                                {/* Bottom Left Overlay: Title + Badges */}
                                 <div className="absolute bottom-5 left-5 right-14 sm:bottom-6 sm:left-6 sm:right-16 z-20 space-y-2">
                                     <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-white font-sans drop-shadow-md">
                                         {client.name}
@@ -70,7 +74,7 @@ export default function FeaturedWork() {
                                         {client.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="px-3.5 py-1 rounded-full border border-white/35 bg-white/15 backdrop-blur-md text-xs font-medium text-white shadow-sm hover:bg-white/25 transition-all"
+                                                className="px-3.5 py-1 rounded-full border border-white/25 bg-black/40 text-xs font-medium text-white shadow-sm hover:bg-black/60 transition-colors"
                                             >
                                                 {tag}
                                             </span>
@@ -88,8 +92,8 @@ export default function FeaturedWork() {
                         initial={mounted ? { opacity: 0, y: 20 } : false}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
-                        className="mt-12 sm:mt-16 flex justify-center"
+                        transition={{ duration: 0.4, delay: 0.2 }}
+                        className="mt-12 sm:mt-16 flex justify-center transform-gpu"
                     >
                         <Button href="/work" size="lg" variant="primary" showArrow={true}>
                             View All Selected Work

@@ -15,7 +15,7 @@ const config: Config = {
                 "surface-subtle": "#F8F8FA",
                 "soft-blue": "#EEF1FF",
                 "soft-lavender": "#F3F5FF",
-                
+
                 // Color mappings for both `text-primary` and `text-text-primary`
                 primary: "#09090B",
                 secondary: "#6F7078",
@@ -24,7 +24,7 @@ const config: Config = {
                 "text-primary": "#09090B",
                 "text-secondary": "#6F7078",
                 "text-muted": "#9A9BA2",
-                
+
                 cobalt: {
                     DEFAULT: "#2442D7",
                     hover: "#1D37B8",
@@ -32,7 +32,7 @@ const config: Config = {
                     light: "#A8B1FF",
                     subtle: "#EFF2FF",
                 },
-                
+
                 border: {
                     subtle: "rgba(10, 10, 10, 0.08)",
                     strong: "rgba(10, 10, 10, 0.15)",
@@ -42,6 +42,7 @@ const config: Config = {
                 sans: ["var(--font-inter)", "system-ui", "sans-serif"],
                 display: ["var(--font-inter)", "system-ui", "sans-serif"],
                 poppins: ["var(--font-poppins)", "system-ui", "sans-serif"],
+                outfit: ["var(--font-outfit)", "system-ui", "sans-serif"],
             },
             borderRadius: {
                 '4xl': '32px',

@@ -36,11 +36,10 @@ export default function SectionHeading({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border shadow-subtle ${
-                        dark
+                    className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider border shadow-subtle ${dark
                             ? 'bg-white/10 border-white/20 text-white'
                             : 'bg-white border-border-subtle text-primary'
-                    }`}
+                        }`}
                 >
                     <span className={`w-2 h-2 rounded-full ${dark ? 'bg-white' : 'bg-cobalt'}`} />
                     {eyebrow}
@@ -52,9 +51,8 @@ export default function SectionHeading({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className={`font-sans font-medium text-2xl sm:text-3xl lg:text-4xl tracking-tight text-balance ${
-                    dark ? 'text-white' : 'text-primary'
-                }`}
+                className={`font-sans font-medium text-2xl sm:text-3xl lg:text-4xl tracking-tight text-balance ${dark ? 'text-white' : 'text-primary'
+                    }`}
             >
                 {title}
             </motion.h2>
@@ -65,9 +63,8 @@ export default function SectionHeading({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className={`text-sm sm:text-base leading-relaxed ${
-                        dark ? 'text-zinc-300' : 'text-secondary'
-                    }`}
+                    className={`text-sm sm:text-base leading-relaxed ${dark ? 'text-zinc-300' : 'text-secondary'
+                        }`}
                 >
                     {description}
                 </motion.p>

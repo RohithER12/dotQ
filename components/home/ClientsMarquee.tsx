@@ -22,7 +22,7 @@ export default function ClientsMarquee() {
                 <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-canvas to-transparent z-10 pointer-events-none" />
                 <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-canvas to-transparent z-10 pointer-events-none" />
 
-                <div className="flex items-center gap-6 sm:gap-10 w-max animate-marquee marquee-content">
+                <div className="flex items-center gap-6 sm:gap-10 w-max animate-marquee marquee-content transform-gpu will-change-transform">
                     {marqueeItems.map((client, index) => (
                         <a
                             key={`${client.id}-${index}`}

@@ -31,7 +31,7 @@ export default function Button({
     external = false,
 }: ButtonProps) {
     const baseStyles = "inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 select-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed group focus:outline-none focus:ring-2 focus:ring-cobalt focus:ring-offset-2";
-    
+
     const sizeStyles = {
         sm: "px-4 py-2 text-xs gap-1.5",
         md: "px-6 py-3 text-sm gap-2",
