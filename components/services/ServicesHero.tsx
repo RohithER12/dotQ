@@ -101,7 +101,7 @@ export default function ServicesHero() {
                         transition={{ duration: 0.7, delay: 0.2 }}
                         className="text-base sm:text-lg text-secondary max-w-2xl leading-relaxed text-balance mx-auto"
                     >
-                        From cross-platform Flutter mobile applications and Next.js web systems to enterprise backend architecture, DevOps automation, and AI integrations.
+                        From cross-platform Flutter mobile applications and Next.js web systems to enterprise backend architecture, DevOps automation, AI integrations, and digital marketing.
                     </motion.p>
 
                     {/* Start Your Project CTA Button */}

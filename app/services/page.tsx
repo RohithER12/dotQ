@@ -6,7 +6,7 @@ import FinalCTA from '@/components/home/FinalCTA';
 
 export const metadata = generateMetadata({
     title: 'IT Services & Software Capabilities | DotQ',
-    description: 'Explore DotQ services including web engineering, Flutter mobile apps, custom backend architectures, DevOps automation, and AI integrations.',
+    description: 'Explore DotQ services including web engineering, Flutter mobile apps, custom backend architectures, DevOps automation, AI integrations, and digital marketing.',
     path: '/services',
 });
 

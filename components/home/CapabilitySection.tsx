@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { SERVICES } from '@/lib/constants';
 import SectionHeading from '@/components/ui/SectionHeading';
-import { Code2, Server, Layout, Workflow, Gauge, Bot } from 'lucide-react';
+import { Code2, Server, Layout, Workflow, Gauge, Bot, Megaphone } from 'lucide-react';
 
 export default function CapabilitySection() {
     const [mounted, setMounted] = useState(false);
@@ -21,6 +21,7 @@ export default function CapabilitySection() {
             case 'workflow': return <Workflow className="w-5 h-5 text-cobalt" />;
             case 'performance-chart': return <Gauge className="w-5 h-5 text-cobalt" />;
             case 'ai-panel': return <Bot className="w-5 h-5 text-cobalt" />;
+            case 'digital-marketing': return <Megaphone className="w-5 h-5 text-cobalt" />;
             default: return <Code2 className="w-5 h-5 text-cobalt" />;
         }
     };
@@ -31,20 +32,21 @@ export default function CapabilitySection() {
                 <SectionHeading
                     eyebrow="OUR SERVICES"
                     title="What We Do"
-                    description="From high-performance web apps and Flutter mobile solutions to resilient microservices, DevOps automation, and AI integration."
+                    description="From high-performance web apps and Flutter mobile solutions to resilient microservices, DevOps automation, AI integration, and digital marketing."
                     className="mb-14 sm:mb-16"
                 />
 
-                {/* 6 Cards Grid Layout */}
+                {/* Cards Grid Layout */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {SERVICES.map((service, idx) => (
                         <motion.div
                             key={service.id}
+                            id={service.id}
                             initial={mounted ? { opacity: 0, y: 24 } : false}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: idx * 0.08 }}
-                            className="h-full"
+                            className="h-full scroll-mt-28"
                         >
                             <div className="rounded-3xl bg-white p-7 sm:p-8 flex flex-col justify-between h-full group">
                                 <div>
@@ -59,7 +61,7 @@ export default function CapabilitySection() {
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="font-poppins font-semibold text-xl sm:text-2xl text-primary tracking-tight mb-3 leading-snug">
+                                    <h3 className="font-poppins font-medium text-xl sm:text-2xl text-primary tracking-tight mb-3 leading-snug">
                                         {service.title}
                                     </h3>
 

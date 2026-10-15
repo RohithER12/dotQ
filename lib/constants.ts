@@ -12,8 +12,8 @@ export const COMPANY = {
     name: 'DotQ',
     fullName: 'Dotq IT & Automation',
     tagline: 'Engineering The Impossible.',
-    description: 'Premier IT company in India offering freelance services, web development, mobile app development with Flutter, e-commerce solutions, and custom software for global enterprises.',
-    email: 'rohither.tech@gmail.com',
+    description: 'Premier IT company in India offering freelance services, web development, mobile app development with Flutter, e-commerce solutions, digital marketing, and custom software for global enterprises.',
+    email: 'business@dotq.in',
     phone: '+91 9207209856',
     location: 'Kochi, Kerala, India',
     city: 'Kochi, India',
@@ -23,7 +23,7 @@ export const COMPANY = {
 // Social links (only verified existing URLs)
 export const SOCIAL_LINKS = [
     { name: 'Instagram', href: 'https://www.instagram.com/dotq__/', external: true },
-    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/dot-q-b667393a8/', external: true },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/dotq-in/', external: true },
     { name: 'Twitter', href: 'https://twitter.com/', external: true },
     { name: 'GitHub', href: 'https://github.com/RohithER12', external: true },
 ];
@@ -74,7 +74,7 @@ export const BRAND_STATEMENT = {
     part2: "From enterprise backends to cloud infrastructure, we build resilient digital products designed for speed, reliability, and real business impact.",
 };
 
-// Services (6 genuine DOTQ capabilities)
+// Services (DOTQ capabilities)
 export const SERVICES = [
     {
         id: 'web-mobile-dev',
@@ -123,6 +123,14 @@ export const SERVICES = [
         description: 'LLM API integration, vector databases, and custom AI model deployment.',
         tags: ['LLM APIs', 'Vector DBs', 'Custom AI Models', 'Prompt Workflows'],
         graphicType: 'ai-panel',
+    },
+    {
+        id: 'digital-marketing',
+        num: '07',
+        title: 'Digital Marketing',
+        description: 'Data-driven SEO, performance marketing, social media campaigns, and conversion rate optimization.',
+        tags: ['SEO & SEM', 'Performance Marketing', 'Social Media Ads', 'Analytics & CRO'],
+        graphicType: 'digital-marketing',
     },
 ];
 
@@ -194,11 +202,12 @@ export const CAPABILITY_SUMMARY = [
         featured: false,
     },
     {
-        title: 'Scale & Intelligence',
+        title: 'Scale & Growth',
         capabilities: [
             'Business Automation Solutions',
             'Performance Engineering',
             'AI Integration',
+            'Digital Marketing & Growth',
         ],
         ctaText: 'Discuss Your Challenge',
         href: '/contact',
@@ -218,7 +227,7 @@ export const CLIENTS = [
         category: 'E-Commerce',
         cardStyle: 'browser',
         bgGradient: 'from-[#3b5966] via-[#2d4652] to-[#1c2e37]',
-        previewImage: '/Works IMG/Naiksha erk img 02.jpg',
+        previewImage: '/Works IMG/Naiksha 01.png',
         objectFit: 'object-cover',
         objectPosition: 'object-center',
     },
@@ -232,7 +241,7 @@ export const CLIENTS = [
         category: 'E-Commerce & Retail',
         cardStyle: 'image',
         bgGradient: 'from-[#2d4030] via-[#1f2e22] to-[#121c14]',
-        previewImage: '/Works IMG/yugen_bags_stock.png',
+        previewImage: '/Works IMG/yugenbags 01.png',
     },
     {
         id: 'fourteen-yards',
@@ -244,7 +253,7 @@ export const CLIENTS = [
         category: 'Architecture & Design',
         cardStyle: 'browser',
         bgGradient: 'from-[#4a3e3d] via-[#352c2b] to-[#211a19]',
-        previewImage: '/Works IMG/fourteen_yards_stock.png',
+        previewImage: '/Works IMG/Fourteen Yards 01.png',
     },
     {
         id: 'breta-world',
@@ -256,7 +265,7 @@ export const CLIENTS = [
         category: 'Corporate & Tech',
         cardStyle: 'image',
         bgGradient: 'from-[#1e3a8a] via-[#172554] to-[#0f172a]',
-        previewImage: '/Works IMG/kreta world wrk img.jpg',
+        previewImage: '/Works IMG/bretaworld 01.png',
     },
     {
         id: 'kasera-interiors',
@@ -268,7 +277,7 @@ export const CLIENTS = [
         category: 'Interior Design',
         cardStyle: 'image',
         bgGradient: 'from-[#4a4238] via-[#332d26] to-[#1c1814]',
-        previewImage: '/Works IMG/kasera interiors wrk img.jpg',
+        previewImage: '/Works IMG/Kasera Interiros 01.png',
     },
     {
         id: 'stoxwaves',
@@ -280,7 +289,7 @@ export const CLIENTS = [
         category: 'Fintech & Analytics',
         cardStyle: 'image',
         bgGradient: 'from-[#0f172a] via-[#1e293b] to-[#020617]',
-        previewImage: '/Works IMG/stoxwaves.jpg',
+        previewImage: '/Works IMG/Stoxwave 01.png',
     },
     {
         id: 'cff-academy',
@@ -292,7 +301,7 @@ export const CLIENTS = [
         category: 'Sports & Football Academy',
         cardStyle: 'image',
         bgGradient: 'from-[#14532d] via-[#064e3b] to-[#022c22]',
-        previewImage: '/Works IMG/cff_academy.jpg',
+        previewImage: '/Works IMG/CFFAcadamy 01.png',
     },
     {
         id: 'zenmode-clothing',
@@ -304,7 +313,7 @@ export const CLIENTS = [
         category: 'Apparel & E-Commerce',
         cardStyle: 'image',
         bgGradient: 'from-[#2a2a2a] via-[#1a1a1a] to-[#0d0d0d]',
-        previewImage: '/Works IMG/zenmode_clothing.jpg',
+        previewImage: '/Works IMG/Zenmode Clothing 01.png',
     },
 ];
 

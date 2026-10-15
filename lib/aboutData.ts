@@ -119,8 +119,16 @@ export const ABOUT_CAPABILITIES = [
         title: 'AI Integration',
         description: 'LLM integration and AI-powered functionality designed around real product requirements.',
         tags: ['LLM APIs', 'Vector Search', 'Python', 'AI Tools'],
-        span: 'col-span-1 md:col-span-2 lg:col-span-12',
+        span: 'col-span-1 md:col-span-1 lg:col-span-6',
         graphic: 'ai-matrix',
+    },
+    {
+        id: 'digital-marketing',
+        title: 'Digital Marketing',
+        description: 'Targeted multi-channel campaigns, search visibility, conversion optimization, and brand scaling strategies.',
+        tags: ['SEO & SEM', 'Social Ads', 'Analytics & CRO', 'Growth Strategy'],
+        span: 'col-span-1 md:col-span-1 lg:col-span-6',
+        graphic: 'marketing-trend',
     },
 ];
 

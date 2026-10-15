@@ -13,7 +13,7 @@ interface FAQItem {
 const FAQS: FAQItem[] = [
     {
         question: 'What services does DotQ specialize in?',
-        answer: 'We specialize in custom web development (Next.js, React), cross-platform mobile apps with Flutter, scalable backend microservices, API architecture, and business workflow automation.',
+        answer: 'We specialize in custom web development (Next.js, React), cross-platform mobile apps with Flutter, scalable backend microservices, digital marketing & SEO, API architecture, and business workflow automation.',
     },
     {
         question: 'How long does a typical project take from start to launch?',

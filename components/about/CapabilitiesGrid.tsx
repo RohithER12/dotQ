@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { ABOUT_CAPABILITIES } from '@/lib/aboutData';
-import { Code, Database, Sparkles, Workflow, Gauge, Bot } from 'lucide-react';
+import { Code, Database, Sparkles, Workflow, Gauge, Bot, Megaphone } from 'lucide-react';
 
 export default function CapabilitiesGrid() {
     const [mounted, setMounted] = useState(false);
@@ -20,6 +20,7 @@ export default function CapabilitiesGrid() {
         'business-automation': Workflow,
         'performance-engineering': Gauge,
         'ai-integration': Bot,
+        'digital-marketing': Megaphone,
     };
 
     return (
@@ -28,7 +29,7 @@ export default function CapabilitiesGrid() {
                 <SectionHeading
                     eyebrow="WHAT WE BUILD"
                     title="Complete digital capabilities for ambitious businesses."
-                    description="From web interfaces to distributed backend architectures, automation pipelines and custom AI models."
+                    description="From web interfaces to distributed backend architectures, automation pipelines, custom AI models, and digital marketing."
                     className="mb-14 sm:mb-20"
                 />
 
@@ -55,7 +56,7 @@ export default function CapabilitiesGrid() {
                                         </span>
                                     </div>
 
-                                    <h3 className="text-2xl font-semibold text-primary tracking-tight">
+                                    <h3 className="text-2xl font-medium text-primary tracking-tight">
                                         {cap.title}
                                     </h3>
 

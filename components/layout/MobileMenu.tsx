@@ -51,6 +51,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 { name: 'Business Automation', href: '/services#business-automation' },
                 { name: 'Performance Engineering', href: '/services#performance-engineering' },
                 { name: 'AI Integration', href: '/services#ai-integration' },
+                { name: 'Digital Marketing', href: '/services#digital-marketing' },
             ],
         },
         { name: 'Works', href: '/work' },

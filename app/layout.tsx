@@ -49,7 +49,7 @@ export default function RootLayout({
         ],
         contactPoint: {
             '@type': 'ContactPoint',
-            email: 'rohither.tech@gmail.com',
+            email: 'business@dotq.in',
             contactType: 'customer service'
         },
         description: 'Premier IT company in India offering freelance services, web development, automation and custom software for global enterprises.'

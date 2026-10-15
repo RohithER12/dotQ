@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
         }
 
         const { name, email, message, phone } = validation.data;
-        const recipientEmail = process.env.CONTACT_EMAIL_TO || 'laswin770@gmail.com';
+        const recipientEmail = process.env.CONTACT_EMAIL_TO || 'business@dotq.in';
         const senderEmail = process.env.CONTACT_EMAIL_FROM || 'DotQ Website <onboarding@resend.dev>';
         const apiKey = process.env.RESEND_API_KEY;
 
