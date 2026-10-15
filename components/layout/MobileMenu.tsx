@@ -54,8 +54,8 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 { name: 'Digital Marketing', href: '/services/digital-marketing' },
             ],
         },
+        { name: 'Product', href: '/product' },
         { name: 'Works', href: '/work' },
-        { name: 'Process', href: '/#process' },
         { name: 'Contact', href: '/contact' },
     ];
 

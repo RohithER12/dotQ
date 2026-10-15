@@ -6,12 +6,14 @@ interface PageMetadata {
     title: string;
     description: string;
     path: string;
+    image?: string;
 }
 
-export function generateMetadata({ title, description, path }: PageMetadata): Metadata {
+export function generateMetadata({ title, description, path, image }: PageMetadata): Metadata {
     const siteName = 'DotQ';
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
     const canonicalUrl = cleanPath === '/' ? `${siteUrl}/` : `${siteUrl}${cleanPath}`;
+    const ogImage = image || '/icon-512x512.png';
 
     return {
         title,
@@ -25,10 +27,10 @@ export function generateMetadata({ title, description, path }: PageMetadata): Me
             type: 'website',
             images: [
                 {
-                    url: '/icon-512x512.png',
-                    width: 512,
-                    height: 512,
-                    alt: siteName,
+                    url: ogImage,
+                    width: 1200,
+                    height: 630,
+                    alt: title,
                 },
             ],
         },
@@ -36,7 +38,7 @@ export function generateMetadata({ title, description, path }: PageMetadata): Me
             card: 'summary_large_image',
             title,
             description,
-            images: ['/icon-512x512.png'],
+            images: [ogImage],
         },
         icons: {
             icon: [

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -39,19 +40,27 @@ export default function FeaturedWork() {
                             transition={{ duration: 0.4, delay: Math.min(idx * 0.05, 0.2) }}
                             className="transform-gpu"
                         >
-                            <a
-                                href={client.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="relative block w-full h-[280px] sm:h-[330px] md:h-[360px] rounded-[24px] sm:rounded-[28px] overflow-hidden group cursor-pointer shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-slate-900 transform-gpu contain-paint"
-                            >
-                                {/* Top-Right Glass External Link Icon */}
-                                <div className="absolute top-5 right-5 z-30 w-10 h-10 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-white opacity-90 group-hover:bg-white group-hover:text-black group-hover:scale-110 transition-all duration-300 shadow-md transform-gpu">
-                                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                                </div>
+                            <div className="relative block w-full h-[280px] sm:h-[330px] md:h-[360px] rounded-[24px] sm:rounded-[28px] overflow-hidden group shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-slate-900 transform-gpu contain-paint">
+                                {/* Full Card Link to Project Detail Screen */}
+                                <Link
+                                    href={`/work/${client.id}`}
+                                    className="absolute inset-0 z-10"
+                                    aria-label={`View ${client.name} project details and case study`}
+                                />
+
+                                {/* Top-Right Glass External Link to Live Website */}
+                                <a
+                                    href={client.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    title={`Visit ${client.name} live website`}
+                                    className="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-black/40 border border-white/20 flex items-center justify-center text-white opacity-90 hover:bg-white hover:text-black hover:scale-110 transition-all duration-300 shadow-md transform-gpu"
+                                >
+                                    <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform hover:translate-x-0.5 hover:-translate-y-0.5" />
+                                </a>
 
                                 {/* Full-Bleed Atmospheric Project Image */}
-                                <div className="absolute inset-0 w-full h-full overflow-hidden transform-gpu">
+                                <div className="absolute inset-0 w-full h-full overflow-hidden transform-gpu pointer-events-none">
                                     <Image
                                         src={client.previewImage}
                                         alt={`${client.name} project preview`}
@@ -66,7 +75,7 @@ export default function FeaturedWork() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10 pointer-events-none z-10" />
 
                                 {/* Bottom Left Overlay: Title + Badges */}
-                                <div className="absolute bottom-5 left-5 right-14 sm:bottom-6 sm:left-6 sm:right-16 z-20 space-y-2">
+                                <div className="absolute bottom-5 left-5 right-14 sm:bottom-6 sm:left-6 sm:right-16 z-20 space-y-2 pointer-events-none">
                                     <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-white font-sans drop-shadow-md">
                                         {client.name}
                                     </h3>
@@ -74,14 +83,14 @@ export default function FeaturedWork() {
                                         {client.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="px-3.5 py-1 rounded-full border border-white/25 bg-black/40 text-xs font-medium text-white shadow-sm hover:bg-black/60 transition-colors"
+                                                className="px-3.5 py-1 rounded-full border border-white/25 bg-black/40 text-xs font-medium text-white shadow-sm"
                                             >
                                                 {tag}
                                             </span>
                                         ))}
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
