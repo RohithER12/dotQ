@@ -4,69 +4,52 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
-import { ChevronRight, ArrowRight, CheckCircle2, Mail, Layers, MessageSquareCode } from 'lucide-react';
+import { ArrowRight, Mail, Layers, MessageSquareCode } from 'lucide-react';
 import { GOFORGE_PRODUCT, TAPQ_PRODUCT, COMPARISON_MATRIX } from '@/lib/productData';
+import ProductHero from './ProductHero';
+import FinalCTA from '@/components/home/FinalCTA';
 
 export default function ProductHubScreen() {
     return (
-        <article className="min-h-screen bg-canvas py-12 sm:py-20 select-none">
-            <div className="max-w-[880px] mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Breadcrumbs */}
-                <nav className="flex items-center gap-2 text-xs font-medium text-secondary mb-10" aria-label="Breadcrumb">
-                    <Link href="/" className="hover:text-primary transition-colors">
-                        Home
+        <article className="min-h-screen bg-canvas select-none">
+            {/* Standard Full-width Elevated Hero Section */}
+            <ProductHero />
+
+            <div className="max-w-[880px] mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
+                {/* Quick Jump Strip */}
+                <div className="mb-12 sm:mb-16 pt-2 pb-8 border-b border-border-subtle grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                    <Link
+                        href="#goforge"
+                        className="group flex items-center justify-between p-4 rounded-2xl bg-white border border-border-subtle hover:border-zinc-400 transition-colors shadow-subtle"
+                    >
+                        <div className="flex items-center gap-3">
+                            <div className="w-9 h-9 rounded-xl bg-zinc-100 flex items-center justify-center text-primary group-hover:bg-cobalt group-hover:text-white transition-colors">
+                                <Layers className="w-4 h-4" />
+                            </div>
+                            <div>
+                                <span className="block font-semibold text-primary text-sm">GoForge</span>
+                                <span className="text-secondary text-xs">Multi-Tenant Commerce Engine</span>
+                            </div>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-secondary group-hover:text-primary transition-colors" />
                     </Link>
-                    <ChevronRight className="w-3.5 h-3.5 text-zinc-400" />
-                    <span className="text-primary font-semibold">
-                        Products
-                    </span>
-                </nav>
 
-                {/* Header Area */}
-                <header className="space-y-6 mb-12 sm:mb-16">
-                    <h1 className="text-3xl sm:text-5xl font-sans font-medium text-primary tracking-tight leading-[1.12]">
-                        DotQ Products
-                    </h1>
-
-                    <p className="text-lg sm:text-xl text-primary font-medium leading-relaxed">
-                        Proprietary software platforms engineered for scalable multi-tenant commerce and conversational sales operations.
-                    </p>
-
-                    <p className="text-base sm:text-lg text-secondary leading-relaxed font-normal pt-1">
-                        Beyond bespoke engineering services, DotQ designs and incubates foundational software products. Our platforms solve systemic operational bottlenecks—from multi-tenant storefront infrastructure to WhatsApp-led conversational commerce.
-                    </p>
-
-                    {/* Quick Jump Strip */}
-                    <div className="pt-4 pb-2 border-y border-border-subtle grid grid-cols-2 gap-4 text-xs">
-                        <Link
-                            href="#goforge"
-                            className="group flex items-center justify-between p-3 rounded-xl bg-white border border-border-subtle hover:border-zinc-400 transition-colors"
-                        >
-                            <div className="flex items-center gap-2.5">
-                                <Layers className="w-4 h-4 text-primary" />
-                                <div>
-                                    <span className="block font-semibold text-primary">GoForge</span>
-                                    <span className="text-secondary text-[11px]">Multi-Tenant Commerce</span>
-                                </div>
+                    <Link
+                        href="#tapq"
+                        className="group flex items-center justify-between p-4 rounded-2xl bg-white border border-border-subtle hover:border-zinc-400 transition-colors shadow-subtle"
+                    >
+                        <div className="flex items-center gap-3">
+                            <div className="w-9 h-9 rounded-xl bg-zinc-100 flex items-center justify-center text-primary group-hover:bg-cobalt group-hover:text-white transition-colors">
+                                <MessageSquareCode className="w-4 h-4" />
                             </div>
-                            <ArrowRight className="w-4 h-4 text-secondary group-hover:text-primary transition-colors" />
-                        </Link>
-
-                        <Link
-                            href="#tapq"
-                            className="group flex items-center justify-between p-3 rounded-xl bg-white border border-border-subtle hover:border-zinc-400 transition-colors"
-                        >
-                            <div className="flex items-center gap-2.5">
-                                <MessageSquareCode className="w-4 h-4 text-primary" />
-                                <div>
-                                    <span className="block font-semibold text-primary">TapQ</span>
-                                    <span className="text-secondary text-[11px]">WhatsApp Commerce OS</span>
-                                </div>
+                            <div>
+                                <span className="block font-semibold text-primary text-sm">TapQ</span>
+                                <span className="text-secondary text-xs">WhatsApp Commerce Operating System</span>
                             </div>
-                            <ArrowRight className="w-4 h-4 text-secondary group-hover:text-primary transition-colors" />
-                        </Link>
-                    </div>
-                </header>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-secondary group-hover:text-primary transition-colors" />
+                    </Link>
+                </div>
 
                 {/* Product 1: GoForge Showcase */}
                 <section id="goforge" className="space-y-8 pb-16 sm:pb-20 border-b border-border-subtle scroll-mt-24">
@@ -246,6 +229,9 @@ export default function ProductHubScreen() {
                     </div>
                 </section>
             </div>
+
+            {/* Signature Cobalt Callout matching Services and Works pages */}
+            <FinalCTA />
         </article>
     );
 }

@@ -89,7 +89,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             <div className="flex items-center justify-between pb-6 mb-2 border-b border-black/10">
                                 <Link href="/" onClick={onClose} className="focus:outline-none">
                                     <Image
-                                        src="/assets/dot%20q%20Logo.png"
+                                        src="/assets/dot%20q%20new%20Logo.png"
                                         alt="DotQ Logo"
                                         width={110}
                                         height={32}

@@ -38,9 +38,8 @@ export default function Navbar() {
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className={`text-sm transition-colors ${
-                                        isActive ? 'text-cobalt font-semibold' : 'text-black font-medium hover:text-cobalt'
-                                    }`}
+                                    className={`text-sm transition-colors ${isActive ? 'text-cobalt font-semibold' : 'text-black font-medium hover:text-cobalt'
+                                        }`}
                                 >
                                     {link.name}
                                 </Link>
