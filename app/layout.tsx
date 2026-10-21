@@ -5,6 +5,7 @@ import PageShell from "@/components/layout/PageShell";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import WhatsAppFloatingButton from "@/components/ui/WhatsAppFloatingButton";
 import { DEFAULT_METADATA, siteUrl } from "@/lib/metadata";
 
 const inter = Inter({
@@ -67,6 +68,7 @@ export default function RootLayout({
                         <Navbar />
                         <main className="flex-grow">{children}</main>
                         <Footer />
+                        <WhatsAppFloatingButton />
                     </PageShell>
                 </SmoothScroll>
             </body>

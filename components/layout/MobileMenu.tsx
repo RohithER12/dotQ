@@ -55,6 +55,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             ],
         },
         { name: 'Product', href: '/product' },
+        { name: 'Technologies', href: '/technologies' },
         { name: 'Works', href: '/work' },
         { name: 'Contact', href: '/contact' },
     ];

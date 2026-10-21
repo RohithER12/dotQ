@@ -68,8 +68,8 @@ export default function ProductHubScreen() {
                     {/* GoForge Conceptual Visual (No border outline) */}
                     <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-3xl overflow-hidden shadow-nova-md bg-slate-900">
                         <Image
-                            src="/assets/goforge_preview.jpg"
-                            alt="GoForge Multi-Tenant Commerce Platform Interface"
+                            src={GOFORGE_PRODUCT.image}
+                            alt="GoForge Multi-Tenant Analytics Dashboard"
                             fill
                             sizes="(max-width: 880px) 100vw, 880px"
                             className="w-full h-full object-cover"
@@ -122,8 +122,8 @@ export default function ProductHubScreen() {
                     {/* TapQ Conceptual Visual (No border outline) */}
                     <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-3xl overflow-hidden shadow-nova-md bg-slate-900">
                         <Image
-                            src="/assets/tapq_preview.jpg"
-                            alt="TapQ WhatsApp Commerce OS Interface"
+                            src={TAPQ_PRODUCT.image}
+                            alt="TapQ WhatsApp Commerce OS Dashboard"
                             fill
                             sizes="(max-width: 880px) 100vw, 880px"
                             className="w-full h-full object-cover"

@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function ProductDetailView({ product, otherProduct }: Props) {
-    const previewSrc = product.id === 'goforge' ? '/assets/goforge_preview.jpg' : '/assets/tapq_preview.jpg';
+    const previewSrc = product.image || (product.id === 'goforge' ? '/GoForge Multi-Tenant Analytics Dashboard.png' : '/Tapq dashboard.png');
 
     return (
         <article className="min-h-screen bg-canvas py-12 sm:py-20 select-none">

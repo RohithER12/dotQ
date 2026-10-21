@@ -36,6 +36,7 @@ export interface RoadmapPhase {
 export interface ProductDetail {
     id: 'goforge' | 'tapq';
     name: string;
+    image: string;
     category: string;
     badge: string;
     headline: string;
@@ -80,6 +81,7 @@ export interface ProductDetail {
 export const GOFORGE_PRODUCT: ProductDetail = {
     id: 'goforge',
     name: 'GoForge',
+    image: '/GoForge Multi-Tenant Analytics Dashboard.png',
     category: 'Commerce Infrastructure',
     badge: 'Multi-Tenant Platform',
     headline: 'Multi-Tenant E-Commerce Platform',
@@ -288,6 +290,7 @@ export const GOFORGE_PRODUCT: ProductDetail = {
 export const TAPQ_PRODUCT: ProductDetail = {
     id: 'tapq',
     name: 'TapQ',
+    image: '/Tapq dashboard.png',
     category: 'Conversational Commerce',
     badge: 'WhatsApp Commerce OS',
     headline: 'WhatsApp Commerce OS by DotQ',

@@ -31,7 +31,7 @@ export default function Navbar() {
                     </Link>
 
                     {/* Centre Navigation Links */}
-                    <nav className="hidden md:flex items-center gap-8 lg:gap-10">
+                    <nav className="hidden md:flex items-center gap-5 lg:gap-8">
                         {NAV_LINKS.map((link) => {
                             const isActive = pathname === link.href || (link.href !== '/' && !link.href.includes('#') && pathname?.startsWith(link.href));
                             return (

@@ -3,7 +3,7 @@ import { siteUrl } from '@/lib/metadata';
 import { SERVICES, CLIENTS } from '@/lib/constants';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseRoutes = ['', '/about', '/services', '/product', '/work', '/contact', '/privacy', '/terms'];
+    const baseRoutes = ['', '/about', '/services', '/technologies', '/product', '/work', '/contact', '/privacy', '/terms'];
     const serviceRoutes = SERVICES.map((service) => `/services/${service.id}`);
     const projectRoutes = CLIENTS.map((client) => `/work/${client.id}`);
     const productRoutes = ['/product/goforge', '/product/tapq'];

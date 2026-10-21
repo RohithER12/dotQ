@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props) {
         });
     }
 
-    const preview = product.id === 'goforge' ? '/assets/goforge_preview.jpg' : '/assets/tapq_preview.jpg';
+    const preview = product.image || (product.id === 'goforge' ? '/GoForge Multi-Tenant Analytics Dashboard.png' : '/Tapq dashboard.png');
 
     return baseGenerateMetadata({
         title: `${product.name} — ${product.headline} | DotQ Products`,
