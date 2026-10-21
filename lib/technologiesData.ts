@@ -1,13 +1,13 @@
 export interface TechnologyLogoItem {
     id: string;
     name: string;
-    category: 'backend' | 'frontend' | 'mobile' | 'cloud' | 'bigdata' | 'devops';
+    category: string;
     logo: string;
     alt: string;
 }
 
 export interface TechnologyCategorySection {
-    id: 'backend' | 'frontend' | 'mobile' | 'cloud' | 'bigdata' | 'devops';
+    id: string;
     title: string;
     description: string;
     technologies: TechnologyLogoItem[];
@@ -28,6 +28,8 @@ export const TECH_CATEGORIES = [
     { id: 'backend', label: 'Backend' },
     { id: 'frontend', label: 'Front-End' },
     { id: 'mobile', label: 'Mobile' },
+    { id: 'database', label: 'Database Management' },
+    { id: 'messaging', label: 'Messaging & Streaming' },
     { id: 'cloud', label: 'Cloud' },
     { id: 'bigdata', label: 'Big Data & Analytics' },
     { id: 'devops', label: 'DevOps & Tools' },
@@ -37,24 +39,22 @@ export const TECHNOLOGY_SECTIONS: TechnologyCategorySection[] = [
     {
         id: 'backend',
         title: 'Backend Technologies',
-        description: 'High-performance runtime environments, scalable frameworks, and transactional databases.',
+        description: 'High-performance runtime environments, scalable frameworks, and concurrent services.',
         technologies: [
             { id: 'python', name: 'Python', category: 'backend', logo: '/tech-logos/python.svg', alt: 'Python' },
             { id: 'java', name: 'Java', category: 'backend', logo: '/tech-logos/java.svg', alt: 'Java' },
-            { id: 'php', name: 'PHP', category: 'backend', logo: '/tech-logos/php.svg', alt: 'PHP' },
-            { id: 'mysql', name: 'MySQL', category: 'backend', logo: '/tech-logos/mysql.svg', alt: 'MySQL' },
-            { id: 'elasticsearch', name: 'Elasticsearch', category: 'backend', logo: '/tech-logos/elasticsearch.svg', alt: 'Elasticsearch' },
             { id: 'golang', name: 'Go (Golang)', category: 'backend', logo: '/tech-logos/golang.svg', alt: 'Go Logo' },
-            { id: 'dotnet', name: '.NET', category: 'backend', logo: '/tech-logos/dotnet.svg', alt: '.NET' },
+            { id: 'elasticsearch', name: 'Elasticsearch', category: 'backend', logo: '/tech-logos/elasticsearch.svg', alt: 'Elasticsearch' },
         ],
     },
     {
         id: 'frontend',
         title: 'Front-End Technologies',
-        description: 'Modern component libraries, frameworks, and responsive markup for accessible web experiences.',
+        description: 'Modern component libraries, reactive frameworks, and responsive design systems.',
         technologies: [
             { id: 'nextjs', name: 'Next.js', category: 'frontend', logo: '/tech-logos/nextjs.svg', alt: 'Next.js' },
             { id: 'react', name: 'React', category: 'frontend', logo: '/tech-logos/react.svg', alt: 'React' },
+            { id: 'flutter', name: 'Flutter', category: 'frontend', logo: '/tech-logos/flutter.svg', alt: 'Flutter' },
             { id: 'angular', name: 'Angular', category: 'frontend', logo: '/tech-logos/angular.svg', alt: 'Angular' },
             { id: 'html5', name: 'HTML5', category: 'frontend', logo: '/tech-logos/html5.svg', alt: 'HTML5' },
             { id: 'bootstrap', name: 'Bootstrap', category: 'frontend', logo: '/tech-logos/bootstrap.svg', alt: 'Bootstrap' },
@@ -69,7 +69,29 @@ export const TECHNOLOGY_SECTIONS: TechnologyCategorySection[] = [
             { id: 'apple', name: 'Apple (iOS)', category: 'mobile', logo: '/tech-logos/apple.svg', alt: 'Apple iOS' },
             { id: 'android', name: 'Android', category: 'mobile', logo: '/tech-logos/android.svg', alt: 'Android' },
             { id: 'flutter', name: 'Flutter', category: 'mobile', logo: '/tech-logos/flutter.svg', alt: 'Flutter' },
-            { id: 'ionic', name: 'Ionic', category: 'mobile', logo: '/tech-logos/ionic.svg', alt: 'Ionic' },
+        ],
+    },
+    {
+        id: 'database',
+        title: 'Database Management',
+        description: 'Relational databases, document stores, in-memory caches, and time-series platforms.',
+        technologies: [
+            { id: 'redis', name: 'Redis', category: 'database', logo: '/tech-logos/redis.svg', alt: 'Redis' },
+            { id: 'mongodb', name: 'MongoDB', category: 'database', logo: '/tech-logos/mongodb.svg', alt: 'MongoDB' },
+            { id: 'postgresql', name: 'PostgreSQL', category: 'database', logo: '/tech-logos/postgresql.svg', alt: 'PostgreSQL' },
+            { id: 'graphql', name: 'GraphQL', category: 'database', logo: '/tech-logos/graphql.svg', alt: 'GraphQL' },
+            { id: 'timescaledb', name: 'TimescaleDB', category: 'database', logo: '/tech-logos/timescaledb.svg', alt: 'TimescaleDB' },
+            { id: 'mysql', name: 'MySQL', category: 'database', logo: '/tech-logos/mysql.svg', alt: 'MySQL' },
+        ],
+    },
+    {
+        id: 'messaging',
+        title: 'Messaging & Streaming',
+        description: 'Distributed event log streaming, lightweight pub/sub message brokers, and high-speed RPC.',
+        technologies: [
+            { id: 'nats', name: 'NATS', category: 'messaging', logo: '/tech-logos/nats.svg', alt: 'NATS.io' },
+            { id: 'kafka', name: 'Apache Kafka', category: 'messaging', logo: '/tech-logos/kafka.svg', alt: 'Apache Kafka' },
+            { id: 'grpc', name: 'gRPC', category: 'messaging', logo: '/tech-logos/grpc.svg', alt: 'gRPC' },
         ],
     },
     {
@@ -80,6 +102,7 @@ export const TECHNOLOGY_SECTIONS: TechnologyCategorySection[] = [
             { id: 'azure', name: 'Microsoft Azure', category: 'cloud', logo: '/tech-logos/azure.svg', alt: 'Microsoft Azure' },
             { id: 'aws', name: 'AWS', category: 'cloud', logo: '/tech-logos/aws.svg', alt: 'Amazon Web Services' },
             { id: 'gcp', name: 'Google Cloud', category: 'cloud', logo: '/tech-logos/gcp.svg', alt: 'Google Cloud Platform' },
+            { id: 'digitalocean', name: 'DigitalOcean', category: 'cloud', logo: '/tech-logos/digitalocean.svg', alt: 'DigitalOcean' },
         ],
     },
     {
@@ -88,34 +111,27 @@ export const TECHNOLOGY_SECTIONS: TechnologyCategorySection[] = [
         description: 'Distributed streaming engines, data lakehouses, and interactive business intelligence.',
         technologies: [
             { id: 'tableau', name: 'Tableau', category: 'bigdata', logo: '/tech-logos/tableau.svg', alt: 'Tableau' },
-            { id: 'powerbi', name: 'Power BI', category: 'bigdata', logo: '/tech-logos/powerbi.svg', alt: 'Power BI' },
-            { id: 'databricks', name: 'Databricks', category: 'bigdata', logo: '/tech-logos/databricks.svg', alt: 'Databricks' },
-            { id: 'hadoop', name: 'Hadoop', category: 'bigdata', logo: '/tech-logos/hadoop.svg', alt: 'Hadoop' },
-            { id: 'spark', name: 'Apache Spark', category: 'bigdata', logo: '/tech-logos/spark.svg', alt: 'Apache Spark' },
-            { id: 'deltalake', name: 'Delta Lake', category: 'bigdata', logo: '/tech-logos/deltalake.svg', alt: 'Delta Lake' },
             { id: 'awsglue', name: 'AWS Glue', category: 'bigdata', logo: '/tech-logos/awsglue.svg', alt: 'AWS Glue' },
-            { id: 'kafka', name: 'Apache Kafka', category: 'bigdata', logo: '/tech-logos/kafka.svg', alt: 'Apache Kafka' },
             { id: 'hive', name: 'Apache Hive', category: 'bigdata', logo: '/tech-logos/hive.svg', alt: 'Apache Hive' },
             { id: 'hortonworks', name: 'Hortonworks', category: 'bigdata', logo: '/tech-logos/hortonworks.svg', alt: 'Hortonworks' },
-            { id: 'nifi', name: 'Apache NiFi', category: 'bigdata', logo: '/tech-logos/nifi.svg', alt: 'Apache NiFi' },
         ],
     },
     {
         id: 'devops',
-        title: 'Devops & Other Tools',
+        title: 'DevOps & Tools',
         description: 'Container orchestration, continuous integration, automated QA, and team collaboration.',
         technologies: [
+            { id: 'docker', name: 'Docker', category: 'devops', logo: '/tech-logos/docker.svg', alt: 'Docker' },
+            { id: 'kubernetes', name: 'Kubernetes', category: 'devops', logo: '/tech-logos/kubernetes.svg', alt: 'Kubernetes' },
+            { id: 'git', name: 'Git', category: 'devops', logo: '/tech-logos/git.svg', alt: 'Git' },
+            { id: 'jenkins', name: 'Jenkins', category: 'devops', logo: '/tech-logos/jenkins.svg', alt: 'Jenkins' },
+            { id: 'awsdevops', name: 'AWS DevOps', category: 'devops', logo: '/tech-logos/awsdevops.svg', alt: 'AWS DevOps' },
             { id: 'jira', name: 'Jira', category: 'devops', logo: '/tech-logos/jira.svg', alt: 'Jira' },
             { id: 'confluence', name: 'Confluence', category: 'devops', logo: '/tech-logos/confluence.svg', alt: 'Confluence' },
             { id: 'redmine', name: 'Redmine', category: 'devops', logo: '/tech-logos/redmine.svg', alt: 'Redmine' },
-            { id: 'git', name: 'Git', category: 'devops', logo: '/tech-logos/git.svg', alt: 'Git' },
             { id: 'zendesk', name: 'Zendesk', category: 'devops', logo: '/tech-logos/zendesk.svg', alt: 'Zendesk' },
             { id: 'freshdesk', name: 'Freshdesk', category: 'devops', logo: '/tech-logos/freshdesk.svg', alt: 'Freshdesk' },
             { id: 'selenium', name: 'Selenium', category: 'devops', logo: '/tech-logos/selenium.svg', alt: 'Selenium' },
-            { id: 'jenkins', name: 'Jenkins', category: 'devops', logo: '/tech-logos/jenkins.svg', alt: 'Jenkins' },
-            { id: 'awsdevops', name: 'AWS DevOps', category: 'devops', logo: '/tech-logos/awsdevops.svg', alt: 'AWS DevOps' },
-            { id: 'docker', name: 'Docker', category: 'devops', logo: '/tech-logos/docker.svg', alt: 'Docker' },
-            { id: 'kubernetes', name: 'Kubernetes', category: 'devops', logo: '/tech-logos/kubernetes.svg', alt: 'Kubernetes' },
             { id: 'jiraservice', name: 'Jira Service Management', category: 'devops', logo: '/tech-logos/jiraservice.svg', alt: 'Jira Service' },
             { id: 'splunk', name: 'Splunk', category: 'devops', logo: '/tech-logos/splunk.svg', alt: 'Splunk' },
         ],

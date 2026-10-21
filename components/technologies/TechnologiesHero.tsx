@@ -13,8 +13,8 @@ export default function TechnologiesHero() {
     }, []);
 
     const metrics = [
-        { label: 'Core Disciplines', value: '6', detail: 'Backend to Cloud & Big Data' },
-        { label: 'Supported Technologies', value: '40+', detail: 'Enterprise & Modern Stacks' },
+        { label: 'Core Disciplines', value: '8', detail: 'From Backend to Streaming & Cloud' },
+        { label: 'Supported Technologies', value: '45+', detail: 'Enterprise & Modern Stacks' },
         { label: 'Cloud Architecture', value: '100%', detail: 'Containerized & Resilient' },
         { label: 'Uptime Reliability', value: '99.99%', detail: 'High-Availability Standard' },
     ];
