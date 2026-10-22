@@ -114,8 +114,7 @@ export function getSoftwareApplicationSchema(product: {
         '@id': `${productUrl}#software`,
         name: product.name,
         applicationCategory: 'BusinessApplication',
-        operatingSystem: 'Web',
-        description: `${product.name} is a ${product.headline.toLowerCase()} engineered by DotQ. ${product.summary}`,
+        description: `${product.name} is a web-based ${product.headline.toLowerCase()} engineered by DotQ. ${product.summary}`,
         url: productUrl,
         publisher: {
             '@id': `${siteUrl}/#organization`,
