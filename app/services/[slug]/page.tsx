@@ -52,12 +52,7 @@ export async function generateMetadata({ params }: Props) {
     const service = SERVICES_DATA[slug];
 
     if (!service) {
-        return baseGenerateMetadata({
-            title: 'Service Not Found | DotQ',
-            description: 'The requested service capability could not be found.',
-            path: '/services',
-            noindex: true,
-        });
+        notFound();
     }
 
     const seo = SERVICE_SEO[slug];

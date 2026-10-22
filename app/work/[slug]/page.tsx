@@ -19,7 +19,7 @@ export function generateStaticParams() {
 const PROJECT_SEO: Record<string, { title: string; description: string }> = {
     'naiksha': {
         title: 'Naiksha Case Study — Luxury E-Commerce | DotQ Work',
-        description: 'See how DotQ engineered an edge-rendered headless Next.js e-commerce storefront with sub-second page loads and atomic checkout for luxury apparel label Naiksha.',
+        description: 'See how DotQ engineered an edge-rendered headless Next.js e-commerce storefront with optimized mobile loading, facet filtering, and streamlined checkout for luxury label Naiksha.',
     },
     'yugen-bags': {
         title: 'Yugen Bags Case Study — D2C E-Commerce | DotQ Work',
@@ -39,7 +39,7 @@ const PROJECT_SEO: Record<string, { title: string; description: string }> = {
     },
     'stoxwaves': {
         title: 'Stoxwaves Case Study — Fintech Market Portal | DotQ Work',
-        description: 'How DotQ built a high-concurrency fintech market analytics portal using Go microservices, WebSockets, and Canvas charting for live streaming data platform Stoxwaves.',
+        description: 'How DotQ built a fintech market analytics portal using Go microservices, WebSockets, and Canvas charting for live streaming market data platform Stoxwaves.',
     },
     'cff-academy': {
         title: 'CFF Academy Case Study — Sports Tech Platform | DotQ Work',
@@ -56,12 +56,7 @@ export async function generateMetadata({ params }: Props) {
     const project = PROJECTS_DATA[slug];
 
     if (!project) {
-        return baseGenerateMetadata({
-            title: 'Project Not Found | DotQ',
-            description: 'The requested project case study could not be found.',
-            path: '/work',
-            noindex: true,
-        });
+        notFound();
     }
 
     const seo = PROJECT_SEO[slug];
