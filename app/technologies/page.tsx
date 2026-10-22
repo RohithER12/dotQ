@@ -2,6 +2,7 @@ import React from 'react';
 import TechnologiesHero from '@/components/technologies/TechnologiesHero';
 import TechnologiesExplorer from '@/components/technologies/TechnologiesExplorer';
 import { generateMetadata as baseGenerateMetadata } from '@/lib/metadata';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata = baseGenerateMetadata({
     title: 'Technology Stack & Systems Architecture | DotQ',
@@ -11,8 +12,17 @@ export const metadata = baseGenerateMetadata({
 });
 
 export default function TechnologiesPage() {
+    const breadcrumbJsonLd = getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Technologies', path: '/technologies' },
+    ]);
+
     return (
         <main className="min-h-screen bg-canvas">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             {/* Top Hero Section */}
             <TechnologiesHero />
 

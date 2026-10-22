@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import ProductDetailView from '@/components/product/ProductDetailView';
 import { GOFORGE_PRODUCT, TAPQ_PRODUCT, PROPRIETARY_PRODUCTS } from '@/lib/productData';
 import { generateMetadata as baseGenerateMetadata } from '@/lib/metadata';
+import { getSoftwareApplicationSchema, getBreadcrumbSchema } from '@/lib/schema';
 
 interface Props {
     params: Promise<{
@@ -54,10 +55,25 @@ export default async function ProductDetailPage({ params }: Props) {
         notFound();
     }
 
+    const softwareJsonLd = getSoftwareApplicationSchema(product);
+    const breadcrumbJsonLd = getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Products', path: '/product' },
+        { name: product.name, path: `/product/${slug}` },
+    ]);
+
     const otherProduct = product.id === 'goforge' ? { id: 'tapq', name: 'TapQ' } : { id: 'goforge', name: 'GoForge' };
 
     return (
         <main className="min-h-screen bg-canvas">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             <ProductDetailView product={product} otherProduct={otherProduct} />
         </main>
     );

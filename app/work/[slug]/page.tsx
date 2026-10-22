@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { PROJECTS_DATA } from '@/lib/projectsData';
 import { generateMetadata as baseGenerateMetadata } from '@/lib/metadata';
 import ProjectDetailScreen from '@/components/work/ProjectDetailScreen';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 interface Props {
     params: Promise<{
@@ -77,6 +78,12 @@ export default async function ProjectDetailPage({ params }: Props) {
         notFound();
     }
 
+    const breadcrumbJsonLd = getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Work', path: '/work' },
+        { name: project.name, path: `/work/${slug}` },
+    ]);
+
     const allKeys = Object.keys(PROJECTS_DATA);
     const currentIndex = allKeys.indexOf(slug);
     const prevKey = currentIndex > 0 ? allKeys[currentIndex - 1] : undefined;
@@ -86,10 +93,16 @@ export default async function ProjectDetailPage({ params }: Props) {
     const nextProject = nextKey ? { id: nextKey, name: PROJECTS_DATA[nextKey].name } : undefined;
 
     return (
-        <ProjectDetailScreen
-            project={project}
-            prevProject={prevProject}
-            nextProject={nextProject}
-        />
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
+            <ProjectDetailScreen
+                project={project}
+                prevProject={prevProject}
+                nextProject={nextProject}
+            />
+        </>
     );
 }

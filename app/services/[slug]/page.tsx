@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { SERVICES_DATA } from '@/lib/servicesData';
 import { generateMetadata as baseGenerateMetadata } from '@/lib/metadata';
 import ServiceDetailEditorial from '@/components/services/ServiceDetailEditorial';
+import { getServiceSchema, getBreadcrumbSchema } from '@/lib/schema';
 
 interface Props {
     params: Promise<{
@@ -72,6 +73,25 @@ export default async function DedicatedServicePage({ params }: Props) {
         notFound();
     }
 
-    return <ServiceDetailEditorial service={service} />;
+    const serviceJsonLd = getServiceSchema(service);
+    const breadcrumbJsonLd = getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: service.title, path: `/services/${slug}` },
+    ]);
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
+            <ServiceDetailEditorial service={service} />
+        </>
+    );
 }
 

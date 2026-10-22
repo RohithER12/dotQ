@@ -16,6 +16,26 @@ const nextConfig: NextConfig = {
                 destination: 'https://www.dotq.in/:path*',
                 permanent: true, // Emits HTTP 308 Permanent Redirect
             },
+            {
+                source: '/products',
+                destination: '/product',
+                permanent: true,
+            },
+            {
+                source: '/products/:path*',
+                destination: '/product/:path*',
+                permanent: true,
+            },
+            {
+                source: '/works',
+                destination: '/work',
+                permanent: true,
+            },
+            {
+                source: '/works/:path*',
+                destination: '/work/:path*',
+                permanent: true,
+            },
         ];
     },
 };

@@ -2,6 +2,7 @@ import WorksHero from '@/components/work/WorksHero';
 import FeaturedWork from '@/components/home/FeaturedWork';
 import FinalCTA from '@/components/home/FinalCTA';
 import { generateMetadata } from '@/lib/metadata';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata = generateMetadata({
     title: 'Selected Client Work & Case Studies | DotQ',
@@ -10,8 +11,17 @@ export const metadata = generateMetadata({
 });
 
 export default function WorkPage() {
+    const breadcrumbJsonLd = getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Work', path: '/work' },
+    ]);
+
     return (
         <main className="min-h-screen bg-canvas">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             <WorksHero />
             <FeaturedWork />
             <FinalCTA />

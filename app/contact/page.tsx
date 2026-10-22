@@ -3,6 +3,7 @@ import ContactHero from '@/components/contact/ContactHero';
 import ContactForm from '@/components/contact/ContactForm';
 import ContactLeftGraphic from '@/components/contact/ContactLeftGraphic';
 import { generateMetadata } from '@/lib/metadata';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata = generateMetadata({
     title: 'Contact DotQ | Start Your Custom Software Project',
@@ -11,8 +12,17 @@ export const metadata = generateMetadata({
 });
 
 export default function ContactPage() {
+    const breadcrumbJsonLd = getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Contact', path: '/contact' },
+    ]);
+
     return (
         <div className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-canvas relative overflow-hidden">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             <ContactHero />
 
             <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
