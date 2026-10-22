@@ -5,8 +5,8 @@ import { generateMetadata as baseGenerateMetadata } from '@/lib/metadata';
 import { GOFORGE_PRODUCT } from '@/lib/productData';
 
 export const metadata = baseGenerateMetadata({
-    title: 'DotQ Products — GoForge & TapQ Commerce Platforms',
-    description: 'Explore proprietary software platforms developed by DotQ: GoForge (multi-tenant e-commerce backend) and TapQ (WhatsApp commerce operating system).',
+    title: 'Proprietary Software Platforms & Products | DotQ',
+    description: 'Discover proprietary commerce platforms developed by DotQ: GoForge (multi-tenant e-commerce engine) and TapQ (conversational WhatsApp commerce operating system).',
     path: '/product',
     image: GOFORGE_PRODUCT.image,
 });

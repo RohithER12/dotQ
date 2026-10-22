@@ -4,8 +4,8 @@ import FinalCTA from '@/components/home/FinalCTA';
 import { generateMetadata } from '@/lib/metadata';
 
 export const metadata = generateMetadata({
-    title: 'Selected Client Work & Portfolio | DotQ',
-    description: 'Explore live web platforms, e-commerce storefronts, and custom software systems engineered by DotQ.',
+    title: 'Selected Client Work & Case Studies | DotQ',
+    description: 'Explore live web platforms, headless e-commerce storefronts, fintech portals, and custom software engineering case studies delivered by DotQ.',
     path: '/work',
 });
 

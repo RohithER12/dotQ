@@ -5,8 +5,8 @@ import ContactLeftGraphic from '@/components/contact/ContactLeftGraphic';
 import { generateMetadata } from '@/lib/metadata';
 
 export const metadata = generateMetadata({
-    title: 'Contact DotQ | Start Your Project',
-    description: 'Discuss your web development, automation, custom software, backend, performance or AI integration project with DotQ.',
+    title: 'Contact DotQ | Start Your Custom Software Project',
+    description: 'Contact DotQ to discuss custom software development, web & mobile applications, Go backends, e-commerce platforms, or business workflow automation.',
     path: '/contact',
 });
 

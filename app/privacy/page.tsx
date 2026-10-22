@@ -4,8 +4,8 @@ import { COMPANY } from '@/lib/constants';
 import { generateMetadata } from '@/lib/metadata';
 
 export const metadata = generateMetadata({
-    title: 'Privacy Policy | DotQ IT & Automation',
-    description: 'Privacy Policy for DotQ IT & Automation.',
+    title: 'Privacy Policy | DotQ',
+    description: 'Read DotQ’s Privacy Policy to understand how we collect, use, and protect your personal information when visiting our website or using our services.',
     path: '/privacy',
 });
 

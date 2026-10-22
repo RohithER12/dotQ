@@ -16,6 +16,17 @@ export function generateStaticParams() {
     }));
 }
 
+const PRODUCT_SEO: Record<string, { title: string; description: string }> = {
+    goforge: {
+        title: 'GoForge — Multi-Tenant E-Commerce Platform | DotQ Products',
+        description: 'GoForge is DotQ’s high-concurrency multi-tenant e-commerce engine, built with Go and PostgreSQL for strict tenant data isolation, fast APIs, and Razorpay payments.',
+    },
+    tapq: {
+        title: 'TapQ — WhatsApp Commerce Operating System | DotQ Products',
+        description: 'TapQ turns WhatsApp into a conversational commerce engine for brands—unifying interactive catalogs, Razorpay payment links, stock sync, and automated workflows.',
+    },
+};
+
 export async function generateMetadata({ params }: Props) {
     const { slug } = await params;
     const product = PROPRIETARY_PRODUCTS.find((p) => p.id === slug);
@@ -25,14 +36,16 @@ export async function generateMetadata({ params }: Props) {
             title: 'Product Not Found | DotQ',
             description: 'The requested software product could not be found.',
             path: '/product',
+            noindex: true,
         });
     }
 
     const preview = product.image || (product.id === 'goforge' ? '/GoForge Multi-Tenant Analytics Dashboard.png' : '/Tapq dashboard.png');
+    const seo = PRODUCT_SEO[slug];
 
     return baseGenerateMetadata({
-        title: `${product.name} — ${product.headline} | DotQ Products`,
-        description: `${product.tagline} ${product.summary}`,
+        title: seo ? seo.title : `${product.name} — ${product.headline} | DotQ Products`,
+        description: seo ? seo.description : `${product.tagline} ${product.summary}`,
         path: `/product/${slug}`,
         image: preview,
     });

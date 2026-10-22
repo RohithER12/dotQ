@@ -7,23 +7,50 @@ interface PageMetadata {
     description: string;
     path: string;
     image?: string;
+    noindex?: boolean;
 }
 
-export function generateMetadata({ title, description, path, image }: PageMetadata): Metadata {
+export function generateMetadata({ title, description, path, image, noindex }: PageMetadata): Metadata {
     const siteName = 'DotQ';
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
     const canonicalUrl = cleanPath === '/' ? `${siteUrl}/` : `${siteUrl}${cleanPath}`;
-    const ogImage = image || '/icon-512x512.png';
+    const rawImage = image || '/icon-512x512.png';
+    const ogImage = encodeURI(rawImage);
+
+    const robotsDirective = noindex
+        ? {
+            index: false,
+            follow: false,
+            nocache: true,
+            googleBot: {
+                index: false,
+                follow: false,
+                noimageindex: true,
+            },
+        }
+        : {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                'max-video-preview': -1,
+                'max-image-preview': 'large' as const,
+                'max-snippet': -1,
+            },
+        };
 
     return {
         title,
         description,
         metadataBase: new URL(siteUrl),
+        robots: robotsDirective,
         openGraph: {
             title,
             description,
             url: canonicalUrl,
             siteName,
+            locale: 'en_US',
             type: 'website',
             images: [
                 {
@@ -65,7 +92,7 @@ export function generateMetadata({ title, description, path, image }: PageMetada
 }
 
 export const DEFAULT_METADATA: Metadata = generateMetadata({
-    title: 'DotQ | IT Automation & Custom Software',
-    description: 'Premier IT company in India offering freelance services, web development, automation, digital marketing, and custom software for global enterprises.',
+    title: 'DotQ | Custom Software Development Company',
+    description: 'DotQ builds custom software, ecommerce platforms, web and mobile apps, Go backends, and business automation solutions for growing businesses.',
     path: '/',
 });

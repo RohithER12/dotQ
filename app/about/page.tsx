@@ -7,8 +7,8 @@ import TechnologySection from '@/components/about/TechnologySection';
 import AboutCTA from '@/components/about/AboutCTA';
 
 export const metadata = generateMetadata({
-    title: 'About DotQ | IT Automation and Software Engineering',
-    description: 'Discover how DotQ builds high-performance websites, custom software, business automation systems, backend platforms and AI-powered digital products.',
+    title: 'About DotQ | Custom Software & Engineering Studio',
+    description: 'Learn about DotQ, our engineering philosophy, and how we build resilient custom software, high-performance web and mobile apps, and intelligent automation.',
     path: '/about',
 });
 

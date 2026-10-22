@@ -4,8 +4,8 @@ import { COMPANY } from '@/lib/constants';
 import { generateMetadata } from '@/lib/metadata';
 
 export const metadata = generateMetadata({
-    title: 'Terms and Conditions | DotQ IT & Automation',
-    description: 'Terms and Conditions for DotQ IT & Automation.',
+    title: 'Terms and Conditions | DotQ',
+    description: 'Review the Terms and Conditions governing the use of DotQ’s website, custom software engineering services, proprietary platforms, and client engagements.',
     path: '/terms',
 });
 
