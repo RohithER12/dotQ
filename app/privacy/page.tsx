@@ -2,16 +2,26 @@ import React from 'react';
 import Link from 'next/link';
 import { COMPANY } from '@/lib/constants';
 import { generateMetadata } from '@/lib/metadata';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata = generateMetadata({
-    title: 'Privacy Policy | DotQ IT & Automation',
-    description: 'Privacy Policy for DotQ IT & Automation.',
+    title: 'Privacy Policy | DotQ',
+    description: 'Read DotQ’s Privacy Policy to understand how we collect, use, and protect your personal information when visiting our website or using our services.',
     path: '/privacy',
 });
 
 export default function PrivacyPolicyPage() {
+    const breadcrumbJsonLd = getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Privacy Policy', path: '/privacy' },
+    ]);
+
     return (
         <div className="py-20 sm:py-28 bg-white min-h-screen">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             <div className="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
                 <Link href="/" className="text-xs font-mono text-cobalt hover:underline mb-8 inline-block">
                     ← Back to Home

@@ -6,7 +6,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 import WhatsAppFloatingButton from "@/components/ui/WhatsAppFloatingButton";
-import { DEFAULT_METADATA, siteUrl } from "@/lib/metadata";
+import { DEFAULT_METADATA } from "@/lib/metadata";
+import { getOrganizationSchema } from "@/lib/schema";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -35,26 +36,7 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
-        name: 'DotQ',
-        legalName: 'Dotq IT Automation',
-        url: siteUrl,
-        logo: `${siteUrl}/icon-512x512.png`,
-        sameAs: [
-            'https://www.instagram.com/dotq__/',
-            'https://www.linkedin.com/in/dot-q-b667393a8/',
-            'https://twitter.com/dotq',
-            'https://github.com/RohithER12'
-        ],
-        contactPoint: {
-            '@type': 'ContactPoint',
-            email: 'business@dotq.in',
-            contactType: 'customer service'
-        },
-        description: 'Premier IT company in India offering freelance services, web development, automation and custom software for global enterprises.'
-    };
+    const jsonLd = getOrganizationSchema();
 
     return (
         <html lang="en" className={`${inter.variable} ${poppins.variable} ${outfit.variable}`} suppressHydrationWarning>

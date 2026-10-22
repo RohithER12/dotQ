@@ -2,17 +2,27 @@ import React from 'react';
 import TechnologiesHero from '@/components/technologies/TechnologiesHero';
 import TechnologiesExplorer from '@/components/technologies/TechnologiesExplorer';
 import { generateMetadata as baseGenerateMetadata } from '@/lib/metadata';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata = baseGenerateMetadata({
-    title: 'Technologies, Tools & Architecture | DotQ Engineering',
+    title: 'Technology Stack & Systems Architecture | DotQ',
     description:
-        'Explore DotQ’s comprehensive technology stack and architecture methodology: Backend (Go, Python, Java, Node.js), Front-End (Next.js, React), Mobile (Flutter, iOS, Android), Cloud (AWS, Azure, GCP), Big Data (Spark, Databricks, Kafka), and DevOps & QA tooling.',
+        'Explore DotQ’s core technology stack: high-concurrency Go backends, Next.js web applications, Flutter mobile apps, cloud infrastructure, and DevOps tooling.',
     path: '/technologies',
 });
 
 export default function TechnologiesPage() {
+    const breadcrumbJsonLd = getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Technologies', path: '/technologies' },
+    ]);
+
     return (
         <main className="min-h-screen bg-canvas">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             {/* Top Hero Section */}
             <TechnologiesHero />
 

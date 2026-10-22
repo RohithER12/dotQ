@@ -2,16 +2,26 @@ import React from 'react';
 import Link from 'next/link';
 import { COMPANY } from '@/lib/constants';
 import { generateMetadata } from '@/lib/metadata';
+import { getBreadcrumbSchema } from '@/lib/schema';
 
 export const metadata = generateMetadata({
-    title: 'Terms and Conditions | DotQ IT & Automation',
-    description: 'Terms and Conditions for DotQ IT & Automation.',
+    title: 'Terms and Conditions | DotQ',
+    description: 'Review the Terms and Conditions governing the use of DotQ’s website, custom software engineering services, proprietary platforms, and client engagements.',
     path: '/terms',
 });
 
 export default function TermsPage() {
+    const breadcrumbJsonLd = getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Terms and Conditions', path: '/terms' },
+    ]);
+
     return (
         <div className="py-20 sm:py-28 bg-white min-h-screen">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             <div className="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
                 <Link href="/" className="text-xs font-mono text-cobalt hover:underline mb-8 inline-block">
                     ← Back to Home
