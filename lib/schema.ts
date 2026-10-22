@@ -100,6 +100,13 @@ export function getServiceSchema(service: {
     };
 }
 
+const PRODUCT_DESCRIPTIONS: Record<string, string> = {
+    goforge:
+        'GoForge is DotQ’s web-based multi-tenant e-commerce platform, helping businesses operate online stores while keeping each merchant’s data, customers, products, orders, and payment integrations isolated.',
+    tapq:
+        'TapQ is DotQ’s WhatsApp-first commerce platform, helping businesses manage customer conversations, showcase products, collect payments through Razorpay, and automate order workflows through WhatsApp.',
+};
+
 export function getSoftwareApplicationSchema(product: {
     id: string;
     name: string;
@@ -108,13 +115,17 @@ export function getSoftwareApplicationSchema(product: {
     coreCapabilities?: { title: string }[];
 }) {
     const productUrl = `${siteUrl}/product/${product.id}`;
+    const description =
+        PRODUCT_DESCRIPTIONS[product.id] ||
+        `${product.name} is a software platform developed by DotQ. ${product.summary}`;
+
     return {
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
         '@id': `${productUrl}#software`,
         name: product.name,
         applicationCategory: 'BusinessApplication',
-        description: `${product.name} is a web-based ${product.headline.toLowerCase()} engineered by DotQ. ${product.summary}`,
+        description,
         url: productUrl,
         publisher: {
             '@id': `${siteUrl}/#organization`,
